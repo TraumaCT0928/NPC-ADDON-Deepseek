@@ -1,0 +1,35 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "totr:battle_droid_shot",
+			"render_controllers": [
+				"controller.render.blaster_shot"
+			],
+			"materials": {
+				"blade": "entity_emissive",
+				"glow": "lightsaber_glow"
+			},
+			"textures": {
+				"default": "textures/entity/battle_droid_shot"
+			},
+			"geometry": {
+				"default": "geometry.battle_droid_shot"
+			},
+			"animations": {
+				"move": "animation.projectile.move"
+			},
+			"sound_effects": {
+				"droid_shoot": "droid_shoot"
+			},
+			"particle_effects": {
+				"hit": "totr:blaster_hit_sparks"
+			},
+			"scripts": {
+				"animate": [
+					"move"
+				]
+			}
+		}
+	}
+}

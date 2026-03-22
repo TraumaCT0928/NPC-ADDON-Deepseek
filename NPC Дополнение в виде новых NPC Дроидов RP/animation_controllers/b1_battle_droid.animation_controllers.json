@@ -1,0 +1,50 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.b1_battledroid": {
+			"initial_state": "idle",
+			"states": {
+				"idle": {
+					"animations": [
+						"idle"
+					],
+					"transitions": [
+						{
+							"walk": "query.ground_speed>0&&!query.has_target"
+						},
+						{
+							"combat": "query.has_target"
+						}
+					]
+				},
+				"walk": {
+					"animations": [
+						"walk"
+					],
+					"transitions": [
+						{
+							"idle": "!query.ground_speed&&!query.has_target"
+						},
+						{
+							"combat": "query.has_target"
+						}
+					]
+				},
+				"combat": {
+					"animations": [
+						"walk",
+						"attack_ranged"
+					],
+					"transitions": [
+						{
+							"idle": "!query.has_target&&!query.ground_speed"
+						},
+						{
+							"walk": "!query.has_target&&query.ground_speed>0"
+						}
+					]
+				}
+			}
+		}
+	}
+}
