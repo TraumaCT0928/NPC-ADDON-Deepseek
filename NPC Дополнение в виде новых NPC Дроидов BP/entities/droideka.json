@@ -1,0 +1,298 @@
+{
+	"format_version": "1.20.0",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "totr:droideka",
+			"is_spawnable": true,
+			"is_summonable": true,
+			"is_experimental": false,
+			"properties": {
+				"totr:shield_damage": {
+					"type": "int",
+					"default": 0,
+					"client_sync": false,
+					"range": [
+						0,
+						64
+					]
+				},
+				"totr:is_rolled": {
+					"type": "bool",
+					"default": false,
+					"client_sync": true
+				}
+			}
+		},
+		"component_groups": {
+			"shield": {
+				"minecraft:is_sheared": {}
+			},
+			"rolled_mode": {
+				"minecraft:movement": {
+					"value": 1
+				},
+				"minecraft:behavior.move_towards_target": {
+					"priority": 0,
+					"speed_multiplier": 1,
+					"within_radius": 64
+				},
+				"minecraft:behavior.nearest_attackable_target": {
+					"priority": 1,
+					"entity_types": [
+						{
+							"filters": {
+								"any_of": [
+									{
+										"test": "is_family",
+										"subject": "other",
+										"value": "player"
+									},
+									{
+										"test": "is_family",
+										"subject": "other",
+										"value": "monster"
+									}
+								]
+							},
+							"max_dist": 64,
+							"must_see": false
+						}
+					],
+					"reselect_targets": true
+				},
+				"minecraft:behavior.ranged_attack": {
+					"priority": 99
+				}
+			},
+			"combat_mode": {
+				"minecraft:movement": {
+					"value": 0.22
+				},
+				"minecraft:behavior.ranged_attack": {
+					"priority": 0
+				},
+				"minecraft:behavior.nearest_attackable_target": {
+					"priority": 1,
+					"entity_types": [
+						{
+							"filters": {
+								"any_of": [
+									{
+										"test": "is_family",
+										"subject": "other",
+										"value": "player"
+									},
+									{
+										"test": "is_family",
+										"subject": "other",
+										"value": "monster"
+									}
+								]
+							},
+							"max_dist": 64,
+							"must_see": false
+						}
+					],
+					"reselect_targets": true
+				}
+			}
+		},
+		"components": {
+			"minecraft:type_family": {
+				"family": [
+					"droideka",
+					"enemy"
+				]
+			},
+			"minecraft:health": {
+				"value": 35,
+				"max": 35
+			},
+			"minecraft:attack": {
+				"damage": 7
+			},
+			"minecraft:movement": {
+				"value": 0.22
+			},
+			"minecraft:movement.basic": {},
+			"minecraft:navigation.walk": {
+				"can_path_over_water": false,
+				"avoid_water": true,
+				"can_walk": true
+			},
+			"minecraft:behavior.float": {
+				"priority": 0
+			},
+			"minecraft:behavior.random_stroll": {
+				"priority": 6,
+				"speed_multiplier": 0.5,
+				"interval": 100
+			},
+			"minecraft:behavior.look_at_player": {
+				"priority": 7,
+				"look_distance": 16
+			},
+			"minecraft:physics": {
+				"has_gravity": true
+			},
+			"minecraft:collision_box": {
+				"width": 1,
+				"height": 2.2
+			},
+			"minecraft:pushable": {
+				"is_pushable": true
+			},
+			"minecraft:knockback_resistance": {
+				"value": 0.6
+			},
+			"minecraft:damage_sensor": {
+				"triggers": [
+					{
+						"cause": "entity_attack",
+						"deals_damage": true,
+						"on_damage": {
+							"filters": {
+								"all_of": [
+									{
+										"test": "has_component",
+										"subject": "self",
+										"value": "minecraft:is_sheared"
+									},
+									{
+										"test": "bool_property",
+										"domain": "totr:is_rolled",
+										"value": false
+									}
+								]
+							},
+							"event": "totr:break_shield"
+						}
+					},
+					{
+						"cause": "all",
+						"deals_damage": true,
+						"on_damage": {
+							"filters": {
+								"all_of": [
+									{
+										"test": "has_component",
+										"subject": "self",
+										"value": "minecraft:is_sheared"
+									},
+									{
+										"test": "int_property",
+										"domain": "totr:shield_damage",
+										"operator": ">=",
+										"value": 64
+									},
+									{
+										"test": "bool_property",
+										"domain": "totr:is_rolled",
+										"value": false
+									}
+								]
+							},
+							"event": "totr:break_shield"
+						}
+					}
+				]
+			},
+			"minecraft:behavior.nearest_attackable_target": {
+				"priority": 2,
+				"entity_types": [
+					{
+						"filters": {
+							"any_of": [
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "player"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "monster"
+								}
+							]
+						},
+						"max_dist": 64,
+						"must_see": false
+					}
+				],
+				"reselect_targets": true
+			},
+			"minecraft:behavior.hurt_by_target": {
+				"priority": 1,
+				"alert_same_type": false
+			},
+			"minecraft:shooter": {
+				"def": "totr:battle_droid_shot"
+			},
+			"minecraft:behavior.ranged_attack": {
+				"priority": 3,
+				"speed_multiplier": 0,
+				"attack_interval_min": 1,
+				"attack_interval_max": 1.5,
+				"attack_radius": 48,
+				"attack_radius_min": 2,
+				"charge_shoot_trigger": 0,
+				"charge_charged_trigger": 0,
+				"target_in_sight_time": 0.05
+			}
+		},
+		"events": {
+			"minecraft:entity_spawned": {
+				"add": {
+					"component_groups": [
+						"shield",
+						"combat_mode"
+					]
+				},
+				"set_property": {
+					"totr:is_rolled": false,
+					"totr:shield_damage": 0
+				}
+			},
+			"totr:break_shield": {
+				"remove": {
+					"component_groups": [
+						"shield"
+					]
+				}
+			},
+			"totr:roll": {
+				"add": {
+					"component_groups": [
+						"rolled_mode"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"combat_mode",
+						"shield"
+					]
+				},
+				"set_property": {
+					"totr:is_rolled": true
+				}
+			},
+			"totr:unroll": {
+				"add": {
+					"component_groups": [
+						"combat_mode",
+						"shield"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"rolled_mode"
+					]
+				},
+				"set_property": {
+					"totr:is_rolled": false,
+					"totr:shield_damage": 0
+				}
+			}
+		}
+	}
+}

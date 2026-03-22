@@ -1,0 +1,29 @@
+{
+	"format_version": "1.19.0",
+	"animation_controllers": {
+		"controller.animation.totr.droideka.attack_tag": {
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"shot": "q.is_charged&&q.has_target&&!q.property('totr:is_rolled')"
+						}
+					]
+				},
+				"shot": {
+					"on_entry": [
+						"/tag @s add first_shot"
+					],
+					"on_exit": [
+						"/tag @s remove first_shot"
+					],
+					"transitions": [
+						{
+							"default": "!q.is_charged||!q.has_target||q.property('totr:is_rolled')"
+						}
+					]
+				}
+			}
+		}
+	}
+}
