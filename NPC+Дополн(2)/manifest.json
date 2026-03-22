@@ -1,39 +1,17 @@
 {
-	"format_version": 2,
-	"header": {
-		"name": "NPC+ Дополнение ввиде боевых Дройдов (ресурсы)",
-		"description": "Ресурсы для боевых дроидов из Звездных Войн",
-		"uuid": "e3cd38ba-6094-456d-9247-56004d66e2cf",
-		"version": [
-			1,
-			0,
-			294
-		],
-		"min_engine_version": [
-			1,
-			21,
-			0
-		]
-	},
-	"modules": [
-		{
-			"type": "resources",
-			"uuid": "f4e955cd-84f3-4362-a9c8-c8fd9f4b799c",
-			"version": [
-				1,
-				0,
-				0
-			]
-		}
-	],
-	"dependencies": [
-		{
-			"uuid": "3e3734b6-a7d2-4a69-a0b5-23542f87d254",
-			"version": [
-				1,
-				0,
-				294
-			]
-		}
-	]
+    "format_version": 2,
+    "header": {
+        "name": "NPC+ Дополнение ввиде боевых Дройдов (поведение)",
+        "description": "Поведение боевых дроидов из Звездных Войн",
+        "uuid": "3e3734b6-a7d2-4a69-a0b5-23542f87d254",
+        "version": [1, 0, 295],
+        "min_engine_version": [1, 21, 0]
+    },
+    "modules": [
+        {
+            "type": "data",
+            "uuid": "125b24ea-02b0-43e0-b49f-0f2681952596",
+            "version": [1, 0, 0]
+        }
+    ]
 }
