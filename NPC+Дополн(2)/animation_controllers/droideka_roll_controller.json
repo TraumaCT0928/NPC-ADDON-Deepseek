@@ -1,0 +1,25 @@
+{
+    "format_version": "1.19.0",
+    "animation_controllers": {
+        "controller.animation.totr.droideka.roll_state": {
+            "states": {
+                "default": {
+                    "animations": ["unrolled_animation"],
+                    "transitions": [
+                        {
+                            "rolling": "q.property('totr:is_rolled')"
+                        }
+                    ]
+                },
+                "rolling": {
+                    "animations": ["rolled_animation"],
+                    "transitions": [
+                        {
+                            "default": "!q.property('totr:is_rolled')"
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}
