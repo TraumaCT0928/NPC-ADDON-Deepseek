@@ -1,0 +1,62 @@
+{
+	"format_version": "1.20.10",
+	"animation_controllers": {
+		"controller.animation.totr.droid_survival.death_detection": {
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"died": "!q.is_alive"
+						}
+					]
+				},
+				"died": {
+					"on_entry": [
+						"/execute unless entity @s[tag=old] run function totr/droid_survival/enemy_died"
+					]
+				}
+			}
+		},
+		"controller.animation.totr.droid_survival.spawn": {
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"emerging": "q.is_emerging"
+						}
+					]
+				},
+				"emerging": {
+					"transitions": [
+						{
+							"spawned": "!(q.property('totr:has_left_leg')||q.property('totr:has_right_leg'))&&q.life_time>0.05"
+						},
+						{
+							"spawn": "(q.property('totr:has_left_leg')||q.property('totr:has_right_leg'))"
+						}
+					]
+				},
+				"spawn": {
+					"animations": [
+						"dummy_2850"
+					],
+					"transitions": [
+						{
+							"spawned": "q.all_animations_finished||q.health<q.max_health"
+						}
+					]
+				},
+				"spawned": {
+					"on_entry": [
+						"@s totr:emerged"
+					]
+				}
+			}
+		},
+		"controller.animation.totr.droid_survival.main": {
+			"states": {
+				"default": {}
+			}
+		}
+	}
+}
