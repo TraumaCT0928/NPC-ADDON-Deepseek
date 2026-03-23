@@ -1,0 +1,366 @@
+{
+	"format_version": "1.19.80",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "totr:droideka",
+			"properties": {
+				"totr:shield_damage": {
+					"type": "int",
+					"default": 0,
+					"client_sync": false,
+					"range": [
+						0,
+						64
+					]
+				}
+			},
+			"animations": {
+				"attack_tag": "controller.animation.totr.droideka.attack_tag"
+			},
+			"scripts": {
+				"animate": [
+					"attack_tag"
+				]
+			},
+			"is_summonable": true,
+			"is_spawnable": true
+		},
+		"components": {
+			"minecraft:type_family": {
+				"family": [
+					"enemy",
+					"break_box",
+					"droideka"
+				]
+			},
+			"minecraft:damage_sensor": {
+				"triggers": [
+					{
+						"cause": "entity_attack",
+						"on_damage": {
+							"filters": {
+								"all_of": [
+									{
+										"test": "has_component",
+										"subject": "self",
+										"value": "minecraft:is_sheared"
+									}
+								]
+							},
+							"event": "totr:break_shield"
+						},
+						"deals_damage": true
+					},
+					{
+						"cause": "all",
+						"on_damage": {
+							"filters": {
+								"all_of": [
+									{
+										"test": "has_component",
+										"value": "minecraft:is_sheared",
+										"subject": "self"
+									},
+									{
+										"test": "int_property",
+										"domain": "totr:shield_damage",
+										"operator": ">=",
+										"value": 64
+									}
+								]
+							},
+							"event": "totr:break_shield"
+						},
+						"deals_damage": true
+					},
+					{
+						"cause": "all",
+						"on_damage": {
+							"filters": {
+								"test": "has_component",
+								"value": "minecraft:is_sheared",
+								"subject": "self"
+							},
+							"event": "totr:damage_shield"
+						},
+						"deals_damage": false
+					}
+				]
+			},
+			"minecraft:behavior.hurt_by_target": {
+				"entity_types": {
+					"reevaluate_description": true,
+					"filters": {
+						"any_of": [
+							{
+								"test": "is_family",
+								"subject": "other",
+								"value": "player"
+							},
+							{
+								"test": "is_family",
+								"subject": "other",
+								"value": "companion"
+							},
+							{
+								"test": "is_family",
+								"subject": "other",
+								"value": "clone"
+							}
+						]
+					}
+				}
+			},
+			"minecraft:behavior.nearest_attackable_target": {
+				"priority": 1,
+				"reselect_targets": true,
+				"within_radius": 64,
+				"entity_types": [
+					{
+						"filters": {
+							"any_of": [
+								{
+									"test": "is_family",
+									"value": "player",
+									"subject": "other"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "clone"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "animal"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "cow"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "sheep"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "pig"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "chicken"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "rabbit"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "fox"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "horse"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "llama"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "panda"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "polar_bear"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "wolf"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "cat"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "ocelot"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "turtle"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "dolphin"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "fish"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "bee"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "villager"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "wandering_trader"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "iron_golem"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "snow_golem"
+								}
+							]
+						},
+						"must_see": false,
+						"must_see_forget_duration": 3,
+						"max_dist": 64
+					}
+				]
+			},
+			"minecraft:behavior.ranged_attack": {
+				"priority": 0,
+				"charge_charged_trigger": 0.01,
+				"charge_shoot_trigger": 0.35,
+				"burst_interval": 0.12,
+				"burst_shots": 2,
+				"attack_interval_min": 0.8,
+				"attack_interval_max": 1.2,
+				"attack_radius": 64,
+				"attack_radius_min": 3,
+				"speed_multiplier": 1,
+				"target_in_sight_time": 0.1
+			},
+			"minecraft:shooter": {
+				"def": "totr:battle_droid_shot"
+			},
+			"minecraft:physics": {
+				"has_gravity": true,
+				"has_collision": true
+			},
+			"minecraft:collision_box": {
+				"height": 2,
+				"width": 0.9
+			},
+			"minecraft:health": {
+				"max": 25,
+				"value": 25
+			},
+			"minecraft:knockback_resistance": {
+				"value": 1
+			},
+			"minecraft:movement": {
+				"value": 0.22
+			},
+			"minecraft:movement.basic": {},
+			"minecraft:jump.static": {},
+			"minecraft:navigation.walk": {
+				"avoid_water": true,
+				"can_path_over_water": false,
+				"can_walk": true,
+				"can_swim": false,
+				"can_break_doors": false
+			},
+			"minecraft:behavior.float": {
+				"priority": 0
+			},
+			"minecraft:underwater_movement": {
+				"value": 0.09
+			},
+			"minecraft:behavior.look_at_target": {
+				"priority": 5,
+				"look_distance": 64
+			},
+			"minecraft:behavior.look_at_player": {
+				"priority": 6,
+				"look_distance": 64
+			},
+			"minecraft:behavior.random_look_around": {
+				"priority": 7
+			},
+			"minecraft:behavior.random_stroll": {
+				"priority": 8,
+				"speed_multiplier": 0.8
+			},
+			"minecraft:follow_range": {
+				"value": 64,
+				"max": 64
+			}
+		},
+		"component_groups": {
+			"despawn": {
+				"minecraft:instant_despawn": {}
+			},
+			"shield": {
+				"minecraft:is_sheared": {}
+			}
+		},
+		"events": {
+			"totr:despawn": {
+				"add": {
+					"component_groups": [
+						"despawn"
+					]
+				}
+			},
+			"minecraft:entity_spawned": {
+				"add": {
+					"component_groups": [
+						"shield"
+					]
+				}
+			},
+			"totr:break_shield": {
+				"remove": {
+					"component_groups": [
+						"shield"
+					]
+				},
+				"run_command": {
+					"command": [
+						"playsound droideka_shield_destroyed @a ~ ~ ~"
+					]
+				}
+			},
+			"totr:damage_shield": {
+				"set_property": {
+					"totr:shield_damage": "q.property('totr:shield_damage') + 1"
+				},
+				"run_command": {
+					"command": [
+						"playsound droideka_shield_hit @a ~ ~ ~"
+					]
+				}
+			}
+		}
+	}
+}

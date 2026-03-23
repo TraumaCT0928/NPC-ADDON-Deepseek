@@ -1,0 +1,32 @@
+{
+	"format_version": "1.19.0",
+	"animations": {
+		"animation.totr.dummy": {
+			"animation_length": 200
+		},
+		"animation.totr.dummy.force": {
+			"animation_length": 5
+		},
+		"animation.totr.timeout_1000": {
+			"animation_length": 1
+		},
+		"animation.totr.timeout_500": {
+			"animation_length": 0.5
+		},
+		"animation.totr.timeout.300ms": {
+			"animation_length": 0.3
+		},
+		"animation.totr.timeout.150ms": {
+			"animation_length": 0.15
+		},
+		"animation.totr.timeout.500ms": {
+			"animation_length": 0.5
+		},
+		"animation.totr.timeout.800ms": {
+			"animation_length": 0.8
+		},
+		"animation.totr.timeout.2850ms": {
+			"animation_length": 2.85
+		}
+	}
+}

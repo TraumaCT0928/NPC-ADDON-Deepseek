@@ -1,0 +1,359 @@
+{
+	"format_version": "1.20.0",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "totr:battle_droid_shot",
+			"runtime_identifier": "minecraft:snowball",
+			"is_summonable": true,
+			"animations": {
+				"tag": "animation.totr.battle_droid_shot.tag",
+				"hit": "animation.totr.battle_droid_shot.hit"
+			},
+			"scripts": {
+				"animate": [
+					"tag",
+					{
+						"hit": "q.is_stunned"
+					}
+				]
+			},
+			"properties": {
+				"totr:length": {
+					"client_sync": true,
+					"type": "int",
+					"default": 25,
+					"range": [
+						0,
+						25
+					]
+				},
+				"totr:x_offset": {
+					"client_sync": true,
+					"type": "float",
+					"default": 0,
+					"range": [
+						-32,
+						32
+					]
+				},
+				"totr:droideka_shot": {
+					"client_sync": true,
+					"type": "bool",
+					"default": false
+				}
+			}
+		},
+		"components": {
+			"minecraft:physics": {
+				"has_collision": false,
+				"has_gravity": false
+			},
+			"minecraft:collision_box": {
+				"height": 0.01,
+				"width": 0.01
+			},
+			"minecraft:pushable": {
+				"is_pushable": false,
+				"is_pushable_by_piston": false
+			},
+			"minecraft:type_family": {
+				"family": [
+					"battle_droid_projectile",
+					"projectile"
+				]
+			},
+			"minecraft:timer": {
+				"looping": false,
+				"time": 5,
+				"time_down_event": {
+					"event": "totr:despawn",
+					"target": "self"
+				}
+			},
+			"minecraft:projectile": {
+				"on_hit": {
+					"impact_damage": {
+						"damage": 6,
+						"knockback": false,
+						"destroy_on_hit": false
+					},
+					"definition_event": {
+						"affect_projectile": true,
+						"event_trigger": {
+							"event": "totr:hit",
+							"target": "self"
+						}
+					}
+				},
+				"hit_sound": "lay_egg",
+				"power": 2,
+				"gravity": 0,
+				"anchor": 0,
+				"offset": [
+					0,
+					2,
+					0.8
+				],
+				"uncertainty_base": 1,
+				"uncertainty_multiplier": 0
+			}
+		},
+		"component_groups": {
+			"despawn": {
+				"minecraft:instant_despawn": {}
+			},
+			"hit": {
+				"minecraft:is_stunned": {},
+				"minecraft:timer": {
+					"time": 0.05,
+					"time_down_event": {
+						"event": "totr:despawn",
+						"target": "self"
+					}
+				}
+			},
+			"deflected": {
+				"minecraft:projectile": {
+					"on_hit": {
+						"impact_damage": {
+							"damage": 2,
+							"knockback": false,
+							"destroy_on_hit": false
+						},
+						"definition_event": {
+							"affect_projectile": true,
+							"event_trigger": {
+								"event": "totr:hit",
+								"target": "self"
+							}
+						},
+						"particle_on_hit": {
+							"particle_type": "totr:blaster_hit_sparks",
+							"num_particles": 10,
+							"on_entity_hit": true,
+							"on_other_hit": true
+						}
+					},
+					"hit_sound": "lay_egg",
+					"power": 2,
+					"gravity": 0,
+					"angle_offset": 20,
+					"anchor": 2,
+					"offset": [
+						-0.5,
+						0,
+						0
+					],
+					"uncertainty_base": 0.035,
+					"uncertainty_multiplier": 0.015
+				},
+				"minecraft:type_family": {
+					"family": [
+						"battle_droid_projectile",
+						"projectile",
+						"deflected"
+					]
+				}
+			},
+			"droideka_shot_left": {
+				"minecraft:projectile": {
+					"on_hit": {
+						"impact_damage": {
+							"damage": 6,
+							"knockback": false,
+							"destroy_on_hit": false
+						},
+						"definition_event": {
+							"affect_projectile": true,
+							"event_trigger": {
+								"event": "totr:hit",
+								"target": "self"
+							}
+						}
+					},
+					"hit_sound": "lay_egg",
+					"power": 2,
+					"gravity": 0,
+					"anchor": 0,
+					"offset": [
+						-0.7,
+						1.2,
+						0.8
+					],
+					"uncertainty_base": 1,
+					"uncertainty_multiplier": 0
+				}
+			},
+			"droideka_shot_right": {
+				"minecraft:projectile": {
+					"on_hit": {
+						"impact_damage": {
+							"damage": 6,
+							"knockback": false,
+							"destroy_on_hit": false
+						},
+						"definition_event": {
+							"affect_projectile": true,
+							"event_trigger": {
+								"event": "totr:hit",
+								"target": "self"
+							}
+						}
+					},
+					"hit_sound": "lay_egg",
+					"power": 2,
+					"gravity": 0,
+					"anchor": 0,
+					"offset": [
+						0.7,
+						1.2,
+						0.8
+					],
+					"uncertainty_base": 1,
+					"uncertainty_multiplier": 0
+				}
+			},
+			"b1_shot": {
+				"minecraft:projectile": {
+					"on_hit": {
+						"impact_damage": {
+							"damage": 6,
+							"knockback": false,
+							"destroy_on_hit": false
+						},
+						"definition_event": {
+							"affect_projectile": true,
+							"event_trigger": {
+								"event": "totr:hit",
+								"target": "self"
+							}
+						}
+					},
+					"hit_sound": "lay_egg",
+					"power": 2,
+					"gravity": 0,
+					"anchor": 0,
+					"offset": [
+						-0.3,
+						1.2,
+						0.5
+					],
+					"uncertainty_base": 1,
+					"uncertainty_multiplier": 0
+				}
+			}
+		},
+		"events": {
+			"minecraft:entity_spawned": {
+				"sequence": [
+					{
+						"filters": {
+							"all_of": [
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "droideka"
+								},
+								{
+									"test": "has_tag",
+									"subject": "other",
+									"value": "first_shot"
+								}
+							]
+						},
+						"add": {
+							"component_groups": [
+								"droideka_shot_left"
+							]
+						},
+						"run_command": {
+							"command": [
+								"playsound droideka_shoot @a ~ ~ ~"
+							]
+						}
+					},
+					{
+						"filters": {
+							"all_of": [
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "droideka"
+								},
+								{
+									"test": "has_tag",
+									"subject": "other",
+									"value": "first_shot",
+									"operator": "not"
+								}
+							]
+						},
+						"add": {
+							"component_groups": [
+								"droideka_shot_right"
+							]
+						},
+						"run_command": {
+							"command": [
+								"playsound droideka_shoot @a ~ ~ ~"
+							]
+						}
+					},
+					{
+						"filters": {
+							"test": "is_family",
+							"subject": "other",
+							"value": "b1_battle_droid_chiefs"
+						},
+						"add": {
+							"component_groups": [
+								"b1_shot"
+							]
+						},
+						"run_command": {
+							"command": [
+								"playsound droid_shoot @a ~ ~ ~"
+							]
+						}
+					},
+					{
+						"filters": {
+							"test": "is_family",
+							"subject": "other",
+							"value": "b2_battle_droid"
+						},
+						"add": {
+							"component_groups": [
+								"b1_shot"
+							]
+						},
+						"run_command": {
+							"command": [
+								"playsound droid_shoot @a ~ ~ ~"
+							]
+						}
+					}
+				]
+			},
+			"totr:hit": {
+				"run_command": {
+					"command": [
+						"particle totr:blaster_hit_sparks ~ ~ ~"
+					]
+				},
+				"add": {
+					"component_groups": [
+						"hit"
+					]
+				}
+			},
+			"totr:despawn": {
+				"add": {
+					"component_groups": [
+						"despawn"
+					]
+				}
+			}
+		}
+	}
+}
