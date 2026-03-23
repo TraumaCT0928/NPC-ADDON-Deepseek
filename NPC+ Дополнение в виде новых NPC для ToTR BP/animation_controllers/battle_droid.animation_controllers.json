@@ -1,0 +1,143 @@
+{
+	"format_version": "1.19.0",
+	"animation_controllers": {
+		"controller.animation.totr.battle_droid.death": {
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"dead": "!q.is_alive"
+						}
+					]
+				},
+				"dead": {
+					"animations": [
+						"timeout_500"
+					],
+					"transitions": [
+						{
+							"spawn_parts_rusty": "q.all_animations_finished&&q.property('totr:raider')"
+						},
+						{
+							"spawn_parts_normal": "q.all_animations_finished"
+						}
+					]
+				},
+				"spawn_parts_normal": {
+					"on_entry": [
+						"/execute if entity @s[type=totr:b1_battle_droid] run summon totr:b1_droid_part ^1.2 ^ ^ ~ ~ totr:spawn_normal",
+						"/execute if entity @s[type=totr:b2_battle_droid] run summon totr:b2_droid_part ^1.2 ^ ^ ~ ~ totr:spawn_normal",
+						"/event entity @s totr:despawn"
+					]
+				},
+				"spawn_parts_rusty": {
+					"on_entry": [
+						"/execute if entity @s[type=totr:b1_battle_droid] run summon totr:b1_droid_part ^1.2 ^ ^ ~ ~ totr:spawn_rusty",
+						"/execute if entity @s[type=totr:b2_battle_droid] run summon totr:b2_droid_part ^1.2 ^ ^ ~ ~ totr:spawn_rusty",
+						"/event entity @s totr:despawn"
+					]
+				}
+			}
+		},
+		"controller.animation.totr.battle_droid.drop_leg_entity": {
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"lost_all": "!q.property('totr:has_left_leg')&&!q.property('totr:has_right_leg')"
+						},
+						{
+							"lost_one_rusty": "(q.property('totr:has_left_leg')+q.property('totr:has_right_leg')==1)&&q.property('totr:raider')"
+						},
+						{
+							"lost_one": "q.property('totr:has_left_leg')+q.property('totr:has_right_leg')==1"
+						},
+						{
+							"has_both_rusty": "q.property('totr:raider')"
+						},
+						{
+							"has_both": "1"
+						}
+					]
+				},
+				"has_both": {
+					"on_exit": [
+						"/execute if entity @s[type=totr:b1_battle_droid] run summon totr:b1_droid_leg",
+						"/execute if entity @s[type=totr:b2_battle_droid] run summon totr:b2_droid_leg"
+					],
+					"transitions": [
+						{
+							"lost_one": "!q.property('totr:has_left_leg')||!q.property('totr:has_right_leg')"
+						}
+					]
+				},
+				"lost_one": {
+					"on_exit": [
+						"/execute if entity @s[type=totr:b1_battle_droid] run summon totr:b1_droid_leg",
+						"/execute if entity @s[type=totr:b2_battle_droid] run summon totr:b2_droid_leg"
+					],
+					"transitions": [
+						{
+							"lost_all": "!q.property('totr:has_left_leg')&&!q.property('totr:has_right_leg')"
+						}
+					]
+				},
+				"has_both_rusty": {
+					"on_exit": [
+						"/execute if entity @s[type=totr:b1_battle_droid] run summon totr:b1_droid_leg",
+						"/execute if entity @s[type=totr:b2_battle_droid] run summon totr:b2_droid_leg"
+					],
+					"transitions": [
+						{
+							"lost_one_rusty": "!q.property('totr:has_left_leg')||!q.property('totr:has_right_leg')"
+						}
+					]
+				},
+				"lost_one_rusty": {
+					"on_exit": [
+						"/execute if entity @s[type=totr:b1_battle_droid] run summon totr:b1_droid_leg",
+						"/execute if entity @s[type=totr:b2_battle_droid] run summon totr:b2_droid_leg"
+					],
+					"transitions": [
+						{
+							"lost_all": "!q.property('totr:has_left_leg')&&!q.property('totr:has_right_leg')"
+						}
+					]
+				},
+				"lost_all": {}
+			}
+		},
+		"controller.animation.totr.battle_droid.jetpack": {
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"fly": "(!q.is_emerging&&(q.property('totr:has_left_leg')||q.property('totr:has_right_leg'))&&(q.vertical_speed<-0.5&&math.random(0,40)<1)||math.random(0,1000)<1)"
+						}
+					],
+					"on_entry": [
+						"/effect @s slow_falling 10000 0 true"
+					]
+				},
+				"fly": {
+					"transitions": [
+						{
+							"landing": "!q.can_fly"
+						}
+					],
+					"on_entry": [
+						"/effect @s levitation 1 4 true",
+						"@s totr:start_flight"
+					]
+				},
+				"landing": {
+					"transitions": [
+						{
+							"default": "q.is_on_ground"
+						}
+					]
+				}
+			}
+		}
+	}
+}

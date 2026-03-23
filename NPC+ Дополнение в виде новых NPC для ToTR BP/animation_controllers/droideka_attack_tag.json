@@ -1,0 +1,36 @@
+{
+	"format_version": "1.19.0",
+	"animation_controllers": {
+		"controller.animation.totr.droideka.attack_tag": {
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"charging": "q.is_charged&&q.has_target&&!q.property('totr:is_rolled')"
+						}
+					]
+				},
+				"charging": {
+					"on_entry": [
+						"/tag @s add first_shot"
+					],
+					"transitions": [
+						{
+							"firing": "q.is_charged&&q.has_target&&!q.property('totr:is_rolled')"
+						}
+					]
+				},
+				"firing": {
+					"on_entry": [
+						"/tag @s remove first_shot"
+					],
+					"transitions": [
+						{
+							"default": "!q.is_charged||!q.has_target||q.property('totr:is_rolled')"
+						}
+					]
+				}
+			}
+		}
+	}
+}
