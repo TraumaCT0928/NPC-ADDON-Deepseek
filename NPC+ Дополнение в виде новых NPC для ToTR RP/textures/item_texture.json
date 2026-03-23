@@ -1,0 +1,12 @@
+{
+	"texture_data": {
+		"custom_npc_spawn_egg": {
+			"textures": [
+				"textures/items/custom_npc_spawn_egg"
+			]
+		},
+		"totr_b1_battle_droid_chiefs_egg": {
+			"textures": "textures/items/b1_chiefs_npc_spawn_egg"
+		}
+	}
+}
