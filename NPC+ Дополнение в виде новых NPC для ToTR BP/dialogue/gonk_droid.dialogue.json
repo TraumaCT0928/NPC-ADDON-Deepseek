@@ -1,0 +1,31 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:npc_dialogue": {
+		"scenes": [
+			{
+				"scene_tag": "totr:gonk_main",
+				"npc_name": "Gonk Droid",
+				"text": "*ГОНК-Дройд издаёт звуки характерны ему*",
+				"buttons": [
+					{
+						"name": "Картридж для DC-15A",
+						"commands": [
+							"give cw:dc15a_mag",
+							"playsound random.orb @initiator"
+						]
+					},
+					{
+						"name": "Картридж для DC-15A",
+						"commands": [
+							"give cw:dc15s_mag"
+						]
+					},
+					{
+						"name": "§7Закрыть",
+						"commands": []
+					}
+				]
+			}
+		]
+	}
+}

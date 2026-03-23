@@ -1,0 +1,1 @@
+dialogue open @e[tag=gonk,limit=1] @s gonk_main
