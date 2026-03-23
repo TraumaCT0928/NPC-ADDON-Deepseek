@@ -1,0 +1,75 @@
+{
+	"format_version": "1.19.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "totr:droideka",
+			"spawn_egg": {
+				"base_color": "#505058",
+				"overlay_color": "#61482b"
+			},
+			"materials": {
+				"default": "entity_alphatest",
+				"shield": "entity_flat_additive"
+			},
+			"textures": {
+				"default": "textures/entity/droideka/droideka",
+				"shield": "textures/entity/droideka/droideka_shield"
+			},
+			"geometry": {
+				"default": "geometry.totr.droideka",
+				"shield": "geometry.totr.droideka_shield"
+			},
+			"render_controllers": [
+				"controller.render.totr.droideka",
+				{
+					"controller.render.totr.droideka_shield": "q.is_sheared"
+				}
+			],
+			"animations": {
+				"idle": "animation.totr.droideka.idle",
+				"walk": "animation.totr.droideka.walk",
+				"movement_controller": "controller.animation.totr.droideka.movement",
+				"attack": "animation.totr.droideka.attack",
+				"has_target": "animation.totr.droideka.has_target",
+				"attack_controller": "controller.animation.totr.droideka.attack",
+				"shield": "animation.totr.droideka.shield",
+				"recoil_left": "animation.totr.zombie_basic.recoil.left",
+				"recoil_right": "animation.totr.zombie_basic.recoil.right",
+				"recoil_front": "animation.totr.zombie_basic.recoil.front",
+				"recoil_back": "animation.totr.zombie_basic.recoil.back",
+				"recoil_controller": "controller.animation.totr.droideka.recoil",
+				"shield_broken_sound_anim": "animation.totr.droideka.shield_broken_sound_anim"
+			},
+			"scripts": {
+				"initialize": [
+					"v.recoil_dir = 3;",
+					"v.last_health = q.health;",
+					"v.last_hurt = -100;",
+					"v.hurt_overlay = 0;"
+				],
+				"pre_animation": [
+					"v.hurt_overlay = Math.clamp(1 - (q.life_time - v.last_hurt)/0.3, 0, 1);"
+				],
+				"animate": [
+					"movement_controller",
+					"attack_controller",
+					"recoil_controller",
+					"shield",
+					{
+						"shield_broken_sound_anim": "!q.is_sheared"
+					}
+				]
+			},
+			"particle_effects": {
+				"flakes": "totr:b1_battle_droid_flakes",
+				"totrs": "totr:battle_droid_totrs",
+				"metal_totrs": "totr:battle_droid_metal_totrs",
+				"force_target_mark": "totr:force_target_mark"
+			},
+			"sound_effects": {
+				"step_sound": "droideka_step",
+				"shield_broken_sound": "droideka_shield_destroyed"
+			}
+		}
+	}
+}

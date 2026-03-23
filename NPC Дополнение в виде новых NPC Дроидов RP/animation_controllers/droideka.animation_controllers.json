@@ -1,0 +1,124 @@
+{
+	"format_version": "1.19.0",
+	"animation_controllers": {
+		"controller.animation.totr.droideka.movement": {
+			"states": {
+				"default": {
+					"animations": [
+						"idle"
+					],
+					"transitions": [
+						{
+							"walk": "q.ground_speed>0.6"
+						}
+					],
+					"blend_transition": 0.15
+				},
+				"walk": {
+					"animations": [
+						"walk"
+					],
+					"transitions": [
+						{
+							"default": "q.ground_speed<0.3"
+						}
+					],
+					"blend_transition": 0.15
+				}
+			}
+		},
+		"controller.animation.totr.droideka.attack": {
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"attack": "q.is_charged"
+						},
+						{
+							"has_target": "q.has_target"
+						}
+					],
+					"blend_transition": 0.2
+				},
+				"has_target": {
+					"animations": [
+						"has_target"
+					],
+					"transitions": [
+						{
+							"attack": "q.is_charged"
+						},
+						{
+							"default": "!q.has_target"
+						}
+					],
+					"blend_transition": 0.2
+				},
+				"attack": {
+					"animations": [
+						"attack"
+					],
+					"transitions": [
+						{
+							"has_target": "q.any_animation_finished&&q.has_target"
+						},
+						{
+							"default": "q.any_animation_finished"
+						}
+					],
+					"blend_transition": 0.2
+				}
+			}
+		},
+		"controller.animation.totr.droideka.recoil": {
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"recoil": "v.last_health!=q.health"
+						}
+					]
+				},
+				"recoil": {
+					"particle_effects": [
+						{
+							"effect": "flakes"
+						},
+						{
+							"effect": "metal_totrs"
+						},
+						{
+							"effect": "totrs"
+						}
+					],
+					"on_entry": [
+						"v.last_hurt=q.life_time;"
+					],
+					"on_exit": [
+						"v.last_health=q.health;",
+						"v.recoil_dir=math.random_integer(0,3);"
+					],
+					"animations": [
+						{
+							"recoil_left": "v.recoil_dir==0"
+						},
+						{
+							"recoil_right": "v.recoil_dir==1"
+						},
+						{
+							"recoil_front": "v.recoil_dir==2"
+						},
+						{
+							"recoil_back": "v.recoil_dir==3"
+						}
+					],
+					"transitions": [
+						{
+							"default": "q.any_animation_finished"
+						}
+					]
+				}
+			}
+		}
+	}
+}

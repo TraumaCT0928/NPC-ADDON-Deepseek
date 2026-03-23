@@ -1,0 +1,7 @@
+entity.totr:droid_npc.name=NPC+
+
+item.spawn_egg.entity.totr:droid_npc.name=Spawn NPC+ DroidB1
+
+item.spawn_egg.entity.totr:b1_battle_droid_chiefs.name=Spawn Battle Droid B1 [th-Chief]
+
+entity.totr:b1_battle_droid_chiefs.name=Battle Droid B1 [th-Chief]
