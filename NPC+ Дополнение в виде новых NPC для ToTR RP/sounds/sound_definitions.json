@@ -1,0 +1,187 @@
+{
+	"format_version": "1.14.0",
+	"sound_definitions": {
+		"b1_spawn": {
+			"category": "neutral",
+			"sounds": [
+				"sounds/b1_spawn1",
+				"sounds/b1_spawn2",
+				"sounds/b1_spawn3",
+				"sounds/b1_spawn4",
+				"sounds/b1_spawn5"
+			]
+		},
+		"b1_death": {
+			"category": "neutral",
+			"sounds": [
+				"sounds/b1_death1",
+				"sounds/b1_death2",
+				"sounds/b1_death3",
+				"sounds/b1_death4",
+				"sounds/b1_death5",
+				"sounds/b1_death6",
+				"sounds/b1_death7",
+				"sounds/b1_death8",
+				"sounds/b1_death9",
+				"sounds/b1_death10"
+			]
+		},
+		"b1_hurt": {
+			"category": "neutral",
+			"sounds": [
+				"sounds/b1_hurt1",
+				"sounds/b1_hurt2",
+				"sounds/b1_hurt3",
+				"sounds/b1_hurt4",
+				"sounds/b1_hurt5",
+				"sounds/b1_hurt6",
+				"sounds/b1_hurt7",
+				"sounds/b1_hurt8",
+				"sounds/b1_hurt9",
+				"sounds/b1_hurt10"
+			]
+		},
+		"b1_panic": {
+			"category": "neutral",
+			"sounds": [
+				"sounds/b1_panic1",
+				"sounds/b1_panic2",
+				"sounds/b1_panic3",
+				"sounds/b1_panic4",
+				"sounds/b1_panic5",
+				"sounds/b1_panic6",
+				"sounds/b1_panic7",
+				"sounds/b1_panic8",
+				"sounds/b1_panic9",
+				"sounds/b1_panic10"
+			]
+		},
+		"droid_shoot": {
+			"category": "neutral",
+			"sounds": [
+				"sounds/droid_shoot1",
+				"sounds/droid_shoot2",
+				"sounds/droid_shoot3",
+				"sounds/droid_shoot4",
+				"sounds/droid_shoot5",
+				"sounds/droid_shoot6",
+				"sounds/droid_shoot7",
+				"sounds/droid_shoot8",
+				"sounds/droid_shoot9",
+				"sounds/droid_shoot10"
+			]
+		},
+		"b1_ambient": {
+			"category": "neutral",
+			"sounds": [
+				"sounds/b1_ambient1",
+				"sounds/b1_ambient2",
+				"sounds/b1_ambient3",
+				"sounds/b1_ambient4",
+				"sounds/b1_ambient5",
+				"sounds/b1_ambient6",
+				"sounds/b1_ambient7",
+				"sounds/b1_ambient8",
+				"sounds/b1_ambient9",
+				"sounds/b1_ambient10",
+				"sounds/b1_ambient_11",
+				"sounds/b1_ambient_12",
+				"sounds/b1_ambient_13"
+			]
+		},
+		"droideka_step": {
+			"category": "hostile",
+			"sounds": [
+				{
+					"name": "sounds/droideka/droideka_step1",
+					"volume": 0.4
+				},
+				{
+					"name": "sounds/droideka/droideka_step2",
+					"volume": 0.4
+				},
+				{
+					"name": "sounds/droideka/droideka_step3",
+					"volume": 0.4
+				},
+				{
+					"name": "sounds/droideka/droideka_step4",
+					"volume": 0.4
+				},
+				{
+					"name": "sounds/droideka/droideka_step5",
+					"volume": 0.4
+				},
+				{
+					"name": "sounds/droideka/droideka_step6",
+					"volume": 0.4
+				},
+				{
+					"name": "sounds/droideka/droideka_step7",
+					"volume": 0.4
+				},
+				{
+					"name": "sounds/droideka/droideka_step8",
+					"volume": 0.4
+				},
+				{
+					"name": "sounds/droideka/droideka_step9",
+					"volume": 0.4
+				},
+				{
+					"name": "sounds/droideka/droideka_step10",
+					"volume": 0.4
+				}
+			]
+		},
+		"droideka_shoot": {
+			"category": "hostile",
+			"max_distance": 16,
+			"sounds": [
+				{
+					"name": "sounds/droideka/droideka_shoot1",
+					"volume": 0.6
+				},
+				{
+					"name": "sounds/droideka/droideka_shoot2",
+					"volume": 0.6
+				},
+				{
+					"name": "sounds/droideka/droideka_shoot3",
+					"volume": 0.6
+				},
+				{
+					"name": "sounds/droideka/droideka_shoot4",
+					"volume": 0.6
+				},
+				{
+					"name": "sounds/droideka/droideka_shoot5",
+					"volume": 0.6
+				}
+			]
+		},
+		"droideka_shield_activate": {
+			"category": "hostile",
+			"sounds": [
+				{
+					"name": "sounds/droideka/droideka_shield_activate1",
+					"volume": 0.4
+				},
+				{
+					"name": "sounds/droideka/droideka_shield_activate2",
+					"volume": 0.4
+				}
+			]
+		},
+		"droideka_shield_destroyed": {
+			"category": "hostile",
+			"min_distance": 2,
+			"sounds": [
+				{
+					"name": "sounds/droideka/droideka_shield_destroyed",
+					"volume": 0.4
+				}
+			]
+		}
+	}
+}

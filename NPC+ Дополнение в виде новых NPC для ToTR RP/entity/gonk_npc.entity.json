@@ -1,0 +1,41 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "totr:gonk_npc",
+			"materials": {
+				"default": "npc"
+			},
+			"textures": {
+				"gonk_droid": "textures/entity/gonk/gonk"
+			},
+			"geometry": {
+				"default": "geometry.gonk_npc"
+			},
+			"scripts": {
+				"animate": [
+					"general",
+					{
+						"move": "query.modified_move_speed"
+					},
+					"look_at_target",
+					{
+						"baby_transform": "query.is_baby"
+					}
+				]
+			},
+			"animations": {
+				"general": "animation.gonk.idle",
+				"look_at_target": "animation.common.look_at_target",
+				"move": "animation.gonk.walk",
+				"baby_transform": "animation.npc.baby_transform"
+			},
+			"render_controllers": [
+				"controller.render.gonk_droid_npc"
+			],
+			"spawn_egg": {
+				"texture": "custom_npc_spawn_egg"
+			}
+		}
+	}
+}
