@@ -1,0 +1,219 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+   "controller.render.player.gazi": {
+      "geometry": "Geometry.gazi",
+      "materials": [ { "*": "Material.default" } ]
+     },
+    "controller.render.player.flash": {
+       "geometry": "Geometry.flash",
+       "materials": [ { "*": "Material.flash" } ],
+       "textures": [ "Texture.flash" ],
+       "uv_anim": {
+         "offset": [
+           0.0,
+           "math.mod(math.floor(query.life_time * 10),4) / 4"
+         ],
+         "scale": [
+           1.0,
+           "1 / 4"
+         ]
+       }
+      },
+      "controller.render.player.pkm_flash": {
+         "geometry": "Geometry.pkm_flash",
+         "materials": [ { "*": "Material.flash" } ],
+         "textures": [ "Texture.flash" ],
+         "uv_anim": {
+           "offset": [
+             0.0,
+             "math.mod(math.floor(query.life_time * 10),4) / 4"
+           ],
+           "scale": [
+             1.0,
+             "1 / 4"
+           ]
+         }
+        },
+        "controller.render.player.dshkm": {
+           "geometry": "Geometry.dshkm",
+           "materials": [ { "*": "Material.default" } ],
+           "textures": [ "Texture.dshkm" ]
+          },
+          "controller.render.player.dshkm_fire": {
+             "geometry": "Geometry.fire_dshkm",
+             "materials": [ { "*": "Material.flash" } ],
+             "textures": [ "Texture.flash" ],
+             "uv_anim": {
+               "offset": [
+                 0.0,
+                 "math.mod(math.floor(query.life_time * 10),4) / 4"
+               ],
+               "scale": [
+                 1.0,
+                 "1 / 4"
+               ]
+             }
+            },
+        "controller.render.player.ai1m": {
+           "geometry": "Geometry.ai1m",
+           "materials": [ { "*": "Material.default" } ],
+           "textures": [ "Texture.ai1m" ]
+          },
+      "controller.render.player.poyas_a": {
+         "geometry": "Geometry.poyas_a",
+         "materials": [ { "*": "Material.default" } ],
+         "textures": [ "Texture.poyas_a" ]
+        },
+        "controller.render.player.v6b2_red": {
+           "geometry": "Geometry.v6b2",
+           "materials": [ { "*": "Material.default" } ],
+           "textures": [ "Texture.v6b2_red" ]
+          },
+          "controller.render.player.v6b2_blue": {
+             "geometry": "Geometry.v6b2",
+             "materials": [ { "*": "Material.default" } ],
+             "textures": [ "Texture.v6b2_blue" ]
+            },
+        "controller.render.player.v6b2": {
+           "geometry": "Geometry.v6b2",
+           "materials": [ { "*": "Material.default" } ],
+           "textures": [ "Texture.v6b2" ]
+          },
+          "controller.render.player.v6b3": {
+             "geometry": "Geometry.v6b3",
+             "materials": [ { "*": "Material.default" } ],
+             "textures": [ "Texture.v6b3" ]
+            },
+            "controller.render.player.ssh68_blue": {
+               "geometry": "Geometry.ssh68",
+               "materials": [ { "*": "Material.default" } ],
+               "textures": [ "Texture.ssh68_blue" ]
+              },
+              "controller.render.player.ssh68_red": {
+                 "geometry": "Geometry.ssh68",
+                 "materials": [ { "*": "Material.default" } ],
+                 "textures": [ "Texture.ssh68_red" ]
+                },
+            "controller.render.player.ssh68": {
+               "geometry": "Geometry.ssh68",
+               "materials": [ { "*": "Material.default" } ],
+               "textures": [ "Texture.ssh68" ]
+              },
+            "controller.render.player.afganka": {
+               "geometry": "Geometry.afganka",
+               "materials": [ { "*": "Material.default" } ],
+               "textures": [ "Texture.afganka" ]
+              },
+    "controller.render.player.pbs1": {
+       "geometry": "Geometry.pbs1",
+       "materials": [ { "*": "Material.default" } ],
+       "textures": [ "Texture.pbs1" ]
+      },
+      "controller.render.player.pbs4": {
+         "geometry": "Geometry.pbs4",
+         "materials": [ { "*": "Material.default" } ],
+         "textures": [ "Texture.pbs4" ]
+        },
+      "controller.render.player.gp25": {
+         "geometry": "Geometry.gp25",
+         "materials": [ { "*": "Material.default" } ],
+         "textures": [ "Texture.gp25" ]
+        },
+        "controller.render.player.pso1": {
+           "geometry": "Geometry.pso1",
+           "materials": [ { "*": "Material.default" } ],
+           "textures": [ "Texture.pso1" ]
+          },
+          "controller.render.player.nspu": {
+             "geometry": "Geometry.nspu",
+             "materials": [ { "*": "Material.default" } ],
+             "textures": [ "Texture.nspu" ]
+            },
+            "controller.render.player.nspu_2": {
+               "geometry": "Geometry.nspu_2",
+               "materials": [ { "*": "Material.spider" } ],
+               "textures": [ "Texture.nspu_2" ]
+              },
+              "controller.render.player.nspu_3": {
+                 "geometry": "Geometry.nspu_3",
+                 "materials": [ { "*": "Material.slime" } ],
+                 "textures": [ "Texture.nspu_3" ]
+                },
+                "controller.render.player.bmp2d_head": {
+                   "geometry": "Geometry.bmp2d_head",
+                   "materials": [ { "*": "Material.slime" } ],
+                   "textures": [ "Texture.bmp2d_head" ]
+                  },
+                  "controller.render.player.bmp2d_fire": {
+                     "geometry": "Geometry.bmp2d_fire",
+                     "materials": [ { "*": "Material.flash" } ],
+                     "textures": [ "Texture.flash" ],
+                     "uv_anim": {
+                       "offset": [
+                         0.0,
+                         "math.mod(math.floor(query.life_time * 10),4) / 4"
+                       ],
+                       "scale": [
+                         1.0,
+                         "1 / 4"
+                       ]
+                     }
+                    },
+                    "controller.render.player.toz": {
+                       "geometry": "Geometry.toz",
+                       "materials": [ { "*": "Material.default" } ],
+                       "textures": [ "Texture.toz" ]
+                       },
+                    "controller.render.player.pkm": {
+                       "geometry": "Geometry.pkm",
+                       "materials": [ { "*": "Material.default" } ],
+                       "textures": [ "Texture.pkm" ]
+                       },
+                       "controller.render.player.pkm_reload": {
+                          "geometry": "Geometry.pkm_reload",
+                          "materials": [ { "*": "Material.default" } ],
+                          "textures": [ "Texture.pkm" ]
+                          },
+                          "controller.render.player.aks74u": {
+                             "geometry": "Geometry.aks74u",
+                             "materials": [ { "*": "Material.default" } ],
+                             "textures": [ "Texture.aks74u" ]
+                            },
+                            "controller.render.player.aks74": {
+                               "geometry": "Geometry.aks74",
+                               "materials": [ { "*": "Material.default" } ],
+                               "textures": [ "Texture.aks74" ]
+                              },
+   "controller.render.player.akms": {
+      "geometry": "Geometry.akms",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.akms" ]
+	   },
+     "controller.render.player.aps": {
+        "geometry": "Geometry.aps",
+        "materials": [ { "*": "Material.default" } ],
+        "textures": [ "Texture.aps" ]
+       },
+     "controller.render.player.pm": {
+        "geometry": "Geometry.pm",
+        "materials": [ { "*": "Material.default" } ],
+        "textures": [ "Texture.pm" ]
+       },
+     "controller.render.player.svd": {
+        "geometry": "Geometry.svd",
+        "materials": [ { "*": "Material.default" } ],
+        "textures": [ "Texture.svd" ]
+       },
+       "controller.render.player.rpg7v": {
+          "geometry": "Geometry.rpg7",
+          "materials": [ { "*": "Material.default" } ],
+          "textures": [ "Texture.rpg7" ]
+         },
+         "controller.render.player.rpg7v_pgo7v": {
+            "geometry": "Geometry.rpg7_pgo7v",
+            "materials": [ { "*": "Material.slime" } ],
+            "textures": [ "Texture.rpg7" ]
+           }
+  }
+}

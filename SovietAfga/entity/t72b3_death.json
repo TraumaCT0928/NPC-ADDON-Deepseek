@@ -1,0 +1,28 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "addon:bmp2d_death",
+      "materials": {
+        "default": "spider"
+      },
+      "textures": {
+        "default": "textures/entity/bmp2d_death"
+      },
+      "geometry": {
+        "default": "geometry.bmp2d_death"
+      },
+      "animations": {
+         "move": "animation.bmp2d.move",
+        "move_controller": "controller.animation.bmp2d.move",
+        "look_at_target": "animation.common.look_at_target_tunk"
+      },
+      "scripts": {
+       "animate": ["move_controller", "look_at_target"]
+      },
+      "render_controllers": [
+        "controller.render.default"
+      ]
+    }
+  }
+}

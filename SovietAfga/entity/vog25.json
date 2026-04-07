@@ -1,0 +1,35 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "addon:vog25_bullet",
+			"materials": {
+				"flash": "flash",
+				"default": "entity_alphatest"
+			},
+			"textures": {
+				"default": "textures/entity/vog25"
+			},
+			"geometry": {
+				"default": "geometry.vog25"
+			},
+			"animations": {
+				"look_at_target": "animation.common.look_at_target",
+        "pg7vl": "animation.pg7vl",
+        "pg7vl_2": "animation.pg7vl_2"
+			},
+			"scripts": {
+        "animate": [
+            "pg7vl",
+            "pg7vl_2"
+            ]
+			},
+			"render_controllers": [
+				
+				{"controller.render.iron_golem": "q.is_alive"},
+				{"controller.render.player.flash": "q.is_alive"}
+			],
+			"enable_attachables": false
+		}
+	}
+}

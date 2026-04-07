@@ -1,0 +1,78 @@
+{
+	"scope_renderer": {
+		"type": "image",
+		"offset": [0,0],
+		"texture": "$texture",
+		"anchor_from": "top_right ",
+		"anchor_to": "top_right ",
+		"size": ["275%", "275%"],
+		"$texture|default": "textures/ui/empty",
+		"layer": 2,
+		"variables": [
+			{
+				"requires": "($title_text = 'hud.pnv')",
+				"$texture": "textures/ui/pnv"
+			},
+			{
+				"requires": "($title_text = 'hud.mehvod')",
+				"$texture": "textures/ui/mehvod"
+			},
+			{
+				"requires": "($title_text = 'hud.spp')",
+				"$texture": "textures/ui/spp"
+			},
+			{
+				"requires": "($title_text = 'hud.barrett')",
+				"$texture": "textures/ui/barrett"
+			},
+			{
+				"requires": "($title_text = 'hud.bmp2d_scope')",
+				"$texture": "textures/ui/bmp2d_scope"
+			},
+		    {
+				"requires": "($title_text = 'hud.asvk')",
+				"$texture": "textures/ui/asvk"
+			},
+		    {
+				"requires": "($title_text = 'hud.pso')",
+				"$texture": "textures/ui/pso"
+			},
+		    {
+				"requires": "($title_text = 'hud.m24')",
+				"$texture": "textures/ui/m24"
+			},
+		    {
+				"requires": "($title_text = 'hud.barrett')",
+				"$texture": "textures/ui/barrett"
+			},
+		    {
+				"requires": "($title_text = 'hud.acog')",
+				"$texture": "textures/ui/acog"
+			}
+		]
+	}, 
+	"scope_factory":{
+	"type": "panel",
+		"factory": {
+			"name": "hud_title_text_factory",
+			"control_ids": {
+				"hud_title_text": "scope_renderer@hud.scope_renderer"
+			}
+		}
+	}, 
+	"root_panel": {
+		"type": "panel",
+		"modifications": [
+		 {
+			"array_name": "controls",
+			"operation": "insert_front",
+			"value": [
+               {"scope_factory@hud.scope_factory": {}}
+            ] 
+		 }
+      ]
+	}, 
+	"hud_title_text":{
+    "ignored":"($title_text > 'hud')"
+    }
+}

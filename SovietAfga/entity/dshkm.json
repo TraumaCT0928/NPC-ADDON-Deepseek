@@ -1,0 +1,44 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "addon:dshkm",
+      "materials": {
+        "flash": "flash",
+        "default": "spider"
+      },
+      "textures": {
+        "default": "textures/entity/dshkm"
+      },
+      "geometry": {
+        "default": "geometry.dshkm"
+      },
+      "animations": {
+        "look_at_target": "animation.humanoid.look_at_target_guns"
+      },
+      "scripts": {
+       "animate": [
+        "move_controller",
+         "look_at_target", {"dim": "q.has_rider"},
+        {"babah": "!q.is_alive"}
+      ]
+      },
+      "render_controllers": [
+        {"controller.render.default": "!q.has_rider"}
+      ],
+      "spawn_egg": {
+         "texture": "spawn_dshkm",
+        "texture_index": 0
+      },
+	  
+	  "sound_effects": {
+      "bmp_drive": "addon.bmp_drive"
+	  },
+	  
+      "particle_effects": {
+      "dim": "addon:smoke_3",
+      "babah": "addon:babah"
+      }
+    }
+  }
+}

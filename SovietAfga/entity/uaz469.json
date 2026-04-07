@@ -1,0 +1,32 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "addon:uaz",
+      "materials": {
+        "default": "spider"
+      },
+      "textures": {
+        "default": "textures/entity/uaz469"
+      },
+      "geometry": {
+        "default": "geometry.uaz469"
+      },
+      "animations": {
+         "move": "animation.uaz469_move",
+        "move_controller": "controller.animation.bmp2d_move",
+        "look_at_target": "animation.common.look_at_target"
+      },
+      "scripts": {
+       "animate": ["move_controller", "look_at_target"]
+      },
+      "render_controllers": [
+        "controller.render.bmp2d"
+      ],
+      "spawn_egg": {
+         "texture": "spawn_uaz",
+        "texture_index": 0
+      }
+    }
+  }
+}

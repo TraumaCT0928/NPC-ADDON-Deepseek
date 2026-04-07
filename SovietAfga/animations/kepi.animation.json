@@ -1,0 +1,13 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.kepi": {
+			"loop": true,
+			"bones": {
+				"hat": {
+					"scale": [0.925, 0.925, 0.925]
+				}
+			}
+		}
+	}
+}

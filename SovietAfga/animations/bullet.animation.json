@@ -1,0 +1,13 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.bullet_12.7x108": {
+			"animation_length": 1.08333,
+			"particle_effects": {
+				"0.0": {
+					"effect": "lava_particle"
+				}
+			}
+		}
+	}
+}

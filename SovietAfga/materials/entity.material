@@ -1,0 +1,12 @@
+{
+    "materials":{
+        "version":"1.0.0",
+        "flash:entity":{
+            "+defines":[
+                "USE_UV_ANIM",
+        "ALPHA_TEST",
+        "USE_EMISSIVE"
+            ]
+        }
+    }
+}

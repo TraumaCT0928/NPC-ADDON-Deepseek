@@ -1,0 +1,22 @@
+{
+	"format_version" : "1.8.0",
+	"animations" : {
+		"animation.common.humanoid.look_at_target.default" : {
+			"loop" : true,
+			"bones" : {
+				"head" : {
+					"relative_to" : {
+						"rotation" : "entity"
+					},
+					"rotation" : [ 0.0, "query.target_y_rotation - this", 0.0 ]
+				},
+				"bashnya" : {
+					"rotation" : [ 0.0, "query.head_y_rotation", 0.0 ]
+				},
+				"pushka" : {
+					"rotation" : [ "query.head_x_rotation", 0.0, 0.0 ]
+				}
+			}
+		}
+	}
+}

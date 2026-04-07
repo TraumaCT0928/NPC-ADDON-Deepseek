@@ -1,0 +1,56 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "addon:bmp2dtunk",
+      "materials": {
+        "flash": "flash",
+        "default": "spider"
+      },
+      "textures": {
+        "default": "textures/entity/bmp2d",
+        "blue": "textures/entity/bmp2d_blue",
+        "red": "textures/entity/bmp2d_red",
+        "gusla": "textures/entity/bmp2d_gusla",
+        "gusla_2": "textures/entity/bmp2d_gusla_2"
+      },
+      "geometry": {
+        "default": "geometry.bmp2d",
+        "gusla": "geometry.bmp2d_gusla"
+      },
+      "animations": {
+         "move": "animation.bmp2d_move",
+         "dim": "animation.bmp2d_dim",
+		 "swim": "animation.bmp_swim",
+        "move_controller": "controller.animation.bmp2d_move",
+        "look_at_target": "animation.common.look_at_target_tunk",
+        "babah": "animation.bmp2d_babah"
+      },
+      "scripts": {
+       "animate": [
+        "move_controller",
+         "look_at_target", {"dim": "q.has_rider"},
+        {"babah": "!q.is_alive"}
+      ]
+      },
+      "render_controllers": [
+        {"controller.render.bmp2d": "q.is_alive"},
+        {"controller.render.bmp2d_gusla": "!query.is_moving && q.is_alive"},
+        {"controller.render.bmp2d_gusla_move": "query.is_moving && q.is_alive"}
+      ],
+      "spawn_egg": {
+         "texture": "spawn_bmp2d",
+        "texture_index": 0
+      },
+	  
+	  "sound_effects": {
+      "bmp_drive": "addon.bmp_drive"
+	  },
+	  
+      "particle_effects": {
+      "dim": "addon:smoke_3",
+      "babah": "addon:babah"
+      }
+    }
+  }
+}
