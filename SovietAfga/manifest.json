@@ -1,0 +1,42 @@
+{
+  "format_version": 1,
+  "header": {
+    "description": "Soviet Afgan war addon version 0.2 By YouTube:Чихон and and Magomed Natsulkhanov     \ncredits: -InSaRe-, AM-CO, Coptaine Siemessi, CKEN",
+    "name": "Soviet Afgan war addon V0.2",
+    "uuid": "a3d0d6db-0faa-4826-9e07-585bd5c5fcc5",
+    "version": [
+      1,
+      8,
+      3
+    ],
+    "min_engine_version": [
+      1,
+      8,
+      3
+    ]
+  },
+  "modules": [
+    {
+      "description": "ezy,e&-=€-€=-=€ by cn,j,f",
+      "type": "data",
+      "uuid": "e9999828-d6ce-4c17-93a6-c3d4330b4633",
+      "version": [
+        1,
+        8,
+        1
+      ]
+    }
+  ],
+  "subpacks": [
+  {
+     "folder_name": "one",
+     "name": "control of vehicle by one player",
+     "memory_tier": 1
+     },
+  {
+     "folder_name": "two",
+     "name": "control of vehicle by two players",
+     "memory_tier": 1
+    }
+ ]
+}

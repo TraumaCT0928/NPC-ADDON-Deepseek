@@ -1,0 +1,95 @@
+{
+	"format_version": "1.8.0",
+	"minecraft:entity": {
+	  "description": {
+		"identifier": "addon:dshkm",
+		"is_spawnable": true,
+		"is_summonable": true,
+		"is_experimental": false,
+		"scripts": {
+			"animate": [
+			]
+		},
+		"animations": {
+		}
+	  },
+	  "components": {
+		"minecraft:damage_sensor": {
+			"triggers": [
+				{
+				"on_damage": {
+					"filters": {
+						"test": "is_family",
+						"subject": "other",
+						"value": "bullet"
+					}
+				},
+				"deals_damage": false
+			}
+		]
+		},
+		"minecraft:pushable": {
+			"is_pushable": false,
+			"is_pushable_by_piston": false
+		},
+					  
+		"minecraft:type_family": {
+		  "family": [ "tank" ]
+		},
+		"minecraft:breathable": {
+		  "totalSupply": 1,
+		  "suffocateTime": 0
+		},
+	"minecraft:scale": {
+		  "value": 1
+		},
+		"minecraft:collision_box": {
+			"width": 1,
+		"height": 1.5,
+		"pivot": [0, 0, 0]
+		},
+	   "minecraft:movement": {
+		  "value": 0.0000001
+		  },
+		  "minecraft:movement.basic": {
+  
+		  },
+		  "minecraft:jump.static": {
+		  },
+		"minecraft:health": {
+		  "value": 1,
+		  "max": 1
+		},
+		"minecraft:nameable": {
+		},
+  
+		  "minecraft:knockback_resistance": {
+		  "value": 0
+		},
+		"minecraft:rideable": {
+		  "priority": 0,
+		  "seat_count": 1,
+		  "crouching_skip_interact": true,
+		  "interact_text": "Drive",
+		  "family_types": [
+		  ],
+		  "seats": [
+			{
+				"position": [0, 0.295, 0]
+			}
+		  ]
+		},
+		"minecraft:input_ground_controlled": {
+		}
+		
+  
+	  },
+	  
+	  "component_groups": {
+		
+	  },
+	  "events": {
+		}
+	}
+  }
+  

@@ -1,0 +1,877 @@
+{
+  "format_version": "1.19.10",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "minecraft:player",
+      "is_spawnable": false,
+      "is_summonable": false,
+      "is_experimental": false,
+			"properties": {
+				"hud:bleeding": { "type": "int", "range": [0, 4], "default": 0, "client_sync": true },
+				"hud:weight": { "type": "int", "range": [0, 4], "default": 0, "client_sync": true } 
+			},
+	  "scripts": {
+            "animate":[
+              "ai1m",
+              "f1",
+              "zhgut",
+              "crawl",
+              "ak_rezhimi",
+              "aks74_rezhimi",
+              "ammo_pm",
+              "pm",
+              "ammo_aps",
+              "aps",
+              "toz",
+              "ammo_akm",
+              "ammo_ak74",
+              "ammo_rpk74",
+              "ammo_pkm",
+              "pkm",
+              "akms",
+              "aks74",
+              "aks74u",
+              "rpk74",
+              "rpg7v",
+              "ammo_svd",
+              "svd",
+              "gp25",
+              "ungp25",
+              "dshkm_fire",
+              "ammo_dshkm",
+              "bmp2d_fire",
+              "bmp2d_mehvod"
+			]
+	  },
+	  "animations":{
+      "ai1m": "controller.animation.ai1m",
+      "ai1muse": "animation.ai1muse",
+      "f1": "controller.animation.f1",
+      "f1use": "animation.f1use",
+      "zhgut": "controller.animation.zhgut",
+      "zhgutuse": "animation.zhgutuse",
+      "ak_rezhimi": "controller.animation.ak_rezhimi",
+      "gp25_akms_reload": "animation.gp25_akms_reload",
+      "aks74_rezhimi": "controller.animation.aks74_rezhimi",
+      "gp25_aks74_reload": "animation.gp25_aks74_reload",
+      "akmsrezhimi": "animation.akmsrezhimi",
+      "aks74rezhimi": "animation.aks74rezhimi",
+      "akmsrezhimi2": "animation.akmsrezhimi2",
+      "aks74rezhimi2": "animation.aks74rezhimi2",
+      "rpg7v": "controller.animation.rpg7v",
+      "rpg7vreload": "animation.rpg7vreload",
+      "toz": "controller.animation.toz",
+      "tozreload": "animation.tozreload",
+      "tozfire": "animation.tozfire",
+      "ammo_pm": "controller.animation.ammo_pm",
+       "pm": "controller.animation.pm",
+       "pmreload": "animation.pmreload",
+       "pmfire": "animation.pmfire",
+       "ammo_aps": "controller.animation.ammo_aps",
+        "aps": "controller.animation.aps",
+        "apsreload": "animation.apsreload",
+        "apsfire": "animation.apsfire",
+       "ammo_pkm": "controller.animation.ammo_pkm",
+       "pkm": "controller.animation.pkm",
+       "pkmreload": "animation.pkmreload",
+       "pkmfire": "animation.pkmfire",
+	   "ammo_akm": "controller.animation.ammo_akm",
+	   "ammo_ak74": "controller.animation.ammo_ak74",
+	   "ammo_rpk74": "controller.animation.ammo_rpk74",
+     "aks74": "controller.animation.aks74",
+     "aks74reload": "animation.aks74reload",
+     "aks74fire": "animation.aks74fire",
+      "akms": "controller.animation.akms",
+      "akmsreload": "animation.akmsreload",
+      "akmsfire": "animation.akmsfire",
+      "aks74u": "controller.animation.aks74u",
+      "aks74ureload": "animation.aks74ureload",
+      "aks74ufire": "animation.aks74ufire",
+      "rpk74": "controller.animation.rpk74",
+      "rpk74reload": "animation.rpk74reload",
+      "rpk74fire": "animation.rpk74fire",
+      "gp_fire": "animation.gp_fire",
+      "ammo_svd": "controller.animation.ammo_svd",
+       "svd": "controller.animation.svd",
+       "svdreload": "animation.svdreload",
+       "svdfire": "animation.svdfire",
+       "crawl": "controller.animation.crawl",
+       "gp25": "controller.animation.gp25",
+       "ungp25": "controller.animation.ungp25",
+       "ammo_dshkm": "controller.animation.ammo_dshkm",
+       "dshkm_fire": "controller.animation.dshkm_fire",
+       "dshkmreload": "animation.dshkmreload",
+       "bmp2d_fire": "controller.animation.bmp2d_fire",
+       "bmp2d_mehvod": "controller.animation.bmp2d_mehvod"
+	  }
+    },
+
+    "component_groups": {
+		
+		
+     "f1_bullet": { 
+      "minecraft:spawn_entity": 
+      { 
+        "entities": [
+         {
+           "min_wait_time": 0,
+            "max_wait_time": 0,
+             "single_use": true,
+              "spawn_entity": "addon:f1_bullet",
+               "num_to_spawn": 1 
+               }
+                ]
+                 }
+                 },
+		 "7.62x39_bullet":{
+      "minecraft:spawn_entity": 
+      { 
+        "entities": [
+         {
+           "min_wait_time": 0,
+            "max_wait_time": 0,
+             "single_use": true,
+              "spawn_entity": "addon:7.62x39_bullet",
+               "num_to_spawn": 1 
+               }
+                ]
+                 }
+                 },
+       "7.62x39_krovotek_bullet":{
+        "minecraft:spawn_entity": 
+        { 
+          "entities": [
+           {
+             "min_wait_time": 0,
+              "max_wait_time": 0,
+               "single_use": true,
+                "spawn_entity": "addon:7.62x39_krovotek_bullet",
+                 "num_to_spawn": 1 
+                 }
+                  ]
+                   }
+                   },
+       "5.45x39_bullet":{
+        "minecraft:spawn_entity": 
+        { 
+          "entities": [
+           {
+             "min_wait_time": 0,
+              "max_wait_time": 0,
+               "single_use": true,
+                "spawn_entity": "addon:5.45x39_bullet",
+                 "num_to_spawn": 1 
+                 }
+                  ]
+                   }
+                   },
+         "5.45x39_krovotek_bullet":{
+          "minecraft:spawn_entity": 
+          { 
+            "entities": [
+             {
+               "min_wait_time": 0,
+                "max_wait_time": 0,
+                 "single_use": true,
+                  "spawn_entity": "addon:5.45x39_krovotek_bullet",
+                   "num_to_spawn": 1 
+                   }
+                    ]
+                     }
+                     },
+         "5.45x39_aks74u_bullet":{
+          "minecraft:spawn_entity": 
+          { 
+            "entities": [
+             {
+               "min_wait_time": 0,
+                "max_wait_time": 0,
+                 "single_use": true,
+                  "spawn_entity": "addon:5.45x39_aks74u_bullet",
+                   "num_to_spawn": 1 
+                   }
+                    ]
+                     }
+                     },
+           "5.45x39_aks74u_krovotek_bullet":{
+            "minecraft:spawn_entity": 
+            { 
+              "entities": [
+               {
+                 "min_wait_time": 0,
+                  "max_wait_time": 0,
+                   "single_use": true,
+                    "spawn_entity": "addon:5.45x39_aks74u_krovotek_bullet",
+                     "num_to_spawn": 1 
+                     }
+                      ]
+                       }
+                       },
+             "5.45x39_aks74u_krovotek2_bullet":{
+              "minecraft:spawn_entity": 
+              { 
+                "entities": [
+                 {
+                   "min_wait_time": 0,
+                    "max_wait_time": 0,
+                     "single_use": true,
+                      "spawn_entity": "addon:5.45x39_aks74u_krovotek2_bullet",
+                       "num_to_spawn": 1 
+                       }
+                        ]
+                         }
+                         },
+       "9x18_bullet":{
+        "minecraft:spawn_entity": 
+        { 
+          "entities": [
+           {
+             "min_wait_time": 0,
+              "max_wait_time": 0,
+               "single_use": true,
+                "spawn_entity": "addon:9x18_bullet",
+                 "num_to_spawn": 1 
+                 }
+                  ]
+                   }
+                   },
+         "9x18_krovotek_bullet":{
+          "minecraft:spawn_entity": 
+          { 
+            "entities": [
+             {
+               "min_wait_time": 0,
+                "max_wait_time": 0,
+                 "single_use": true,
+                  "spawn_entity": "addon:9x18_krovotek_bullet",
+                   "num_to_spawn": 1 
+                   }
+                    ]
+                     }
+                     },
+         "9x18_aps_bullet":{
+          "minecraft:spawn_entity": 
+          { 
+            "entities": [
+             {
+               "min_wait_time": 0,
+                "max_wait_time": 0,
+                 "single_use": true,
+                  "spawn_entity": "addon:9x18_aps_bullet",
+                   "num_to_spawn": 1 
+                   }
+                    ]
+                     }
+                     },
+           "9x18_aps_krovotek_bullet":{
+            "minecraft:spawn_entity": 
+            { 
+              "entities": [
+               {
+                 "min_wait_time": 0,
+                  "max_wait_time": 0,
+                   "single_use": true,
+                    "spawn_entity": "addon:9x18_aps_krovotek_bullet",
+                     "num_to_spawn": 1 
+                     }
+                      ]
+                       }
+                       },
+       "7.62x54_bullet":{
+        "minecraft:spawn_entity": 
+        { 
+          "entities": [
+           {
+             "min_wait_time": 0,
+              "max_wait_time": 0,
+               "single_use": true,
+                "spawn_entity": "addon:7.62x54_bullet",
+                 "num_to_spawn": 1 
+                 }
+                  ]
+                   }
+                   },
+       "vog25_bullet":{
+        "minecraft:spawn_entity": 
+        { 
+          "entities": [
+           {
+             "min_wait_time": 0,
+              "max_wait_time": 0,
+               "single_use": true,
+                "spawn_entity": "addon:vog25_bullet",
+                 "num_to_spawn": 1 
+                 }
+                  ]
+                   }
+                   },
+              "pg7vl_bullet":{
+                "minecraft:spawn_entity": 
+                { 
+                  "entities": [
+                   {
+                     "min_wait_time": 0,
+                      "max_wait_time": 0,
+                       "single_use": true,
+                        "spawn_entity": "addon:pg7vl_bullet",
+                         "num_to_spawn": 1 
+                         }
+                          ]
+                           }
+                           },
+              "30mm_bullet":{
+                "minecraft:spawn_entity": 
+                { 
+                  "entities": [
+                   {
+                     "min_wait_time": 0,
+                      "max_wait_time": 0,
+                       "single_use": true,
+                        "spawn_entity": "addon:30mm_bullet",
+                         "num_to_spawn": 1 
+                         }
+                          ]
+                           }
+                           },
+                     "12.7x108_trasser_bullet":{
+                      "minecraft:spawn_entity": 
+                      { 
+                        "entities": [
+                         {
+                           "min_wait_time": 0,
+                            "max_wait_time": 0,
+                             "single_use": true,
+                              "spawn_entity": "addon:12.7x108_trasser_bullet",
+                               "num_to_spawn": 1 
+                               }
+                                ]
+                                 }
+                                 },
+                            "12.7x108_bullet":{
+                              "minecraft:spawn_entity": 
+                              { 
+                                "entities": [
+                                 {
+                                   "min_wait_time": 0,
+                                    "max_wait_time": 0,
+                                     "single_use": true,
+                                      "spawn_entity": "addon:12.7x108_bullet",
+                                       "num_to_spawn": 1 
+                                       }
+                                        ]
+                                         }
+                                         },
+	   
+	   
+	   
+	   
+      "minecraft:add_bad_omen": {
+        "minecraft:spell_effects": {
+          "add_effects": [
+            {
+              "effect": "bad_omen",
+              "duration": 6000,
+              "display_on_screen_animation": true
+            }
+          ]
+        },
+        "minecraft:timer": {
+          "time": [ 0.0, 0.0 ],
+          "looping": false,
+          "time_down_event": {
+            "event": "minecraft:clear_add_bad_omen",
+            "target": "self"
+          }
+        }
+      },
+      "minecraft:clear_bad_omen_spell_effect": {
+        "minecraft:spell_effects": {
+        }
+      },
+      "minecraft:raid_trigger": {
+        "minecraft:raid_trigger": {
+          "triggered_event": {
+            "event": "minecraft:remove_raid_trigger",
+            "target": "self"
+          }
+        },
+        "minecraft:spell_effects": {
+          "remove_effects": "bad_omen"
+        }
+      },
+            "sneak": {
+                "minecraft:collision_box": {
+                    "width": 0.6,
+                    "height": 1.5
+                }
+            },
+            "stand": {
+                "minecraft:collision_box": {
+                    "width": 0.6,
+                    "height": 1.8
+                }
+            },
+            "on": {
+                "minecraft:mark_variant": {
+                    "value": 1
+                }
+            },
+            "off": {
+                "minecraft:mark_variant": {
+                    "value": 0
+                }
+            },
+            "move": {
+                "minecraft:mark_variant": {
+                    "value": 2
+                }
+            },
+            "navodchik_bmp2d": {
+                "minecraft:mark_variant": {
+                    "value": 3
+                }
+            },
+            "dshkm": {
+                "minecraft:mark_variant": {
+                    "value": 4
+                }
+            },
+            "gp25": {
+                "minecraft:mark_variant": {
+                    "value": 5
+                }
+            }
+    },
+
+    "components": {
+      "minecraft:experience_reward": {
+        "on_death": "Math.Min(query.player_level * 7, 100)"
+      },
+      "minecraft:type_family": {
+        "family": [ "player" ]
+      },
+      "minecraft:is_hidden_when_invisible": {
+      },
+      "minecraft:loot": {
+        "table": "loot_tables/empty.json"
+      },
+      "minecraft:collision_box": {
+        "width": 0.6,
+        "height": 1.8
+      },
+      "minecraft:can_climb": {
+      },
+      "minecraft:movement": {
+        "value": 0.1
+      },
+      "minecraft:hurt_on_condition": {
+        "damage_conditions": [
+          {
+            "filters": {  "test": "is_family", "subject": "other", "value": "bullet" },
+            "cause": "magic",
+            "damage_per_tick": 2000
+          }
+        ]
+      },
+      "minecraft:attack": {
+        "damage": 1
+      },
+      "minecraft:player.saturation": {
+        "value": 60
+      },
+      "minecraft:player.exhaustion": {
+        "value": 0,
+        "max": 4
+      },
+      "minecraft:player.level": {
+        "value": 0,
+        "max": 24791
+      },
+      "minecraft:player.experience": {
+        "value": 0,
+        "max": 1
+      },
+      "minecraft:breathable": {
+        "total_supply": 15,
+        "suffocate_time": -1,
+        "inhale_time": 3.75,
+        "generates_bubbles": false
+      },
+      "minecraft:nameable": {
+        "always_show": false,
+        "allow_name_tag_renaming": false
+      },
+      "minecraft:physics": {
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:insomnia": {
+        "days_until_insomnia": 3
+      },
+      "minecraft:rideable": {
+        "seat_count": 2,
+        "family_types": [
+          "parrot_tame"
+        ],
+        "pull_in_entities": true,
+        "seats": [
+          {
+            "position": [ 0.4, -0.2, -0.1 ],
+            "min_rider_count": 0,
+            "max_rider_count": 0,
+            "lock_rider_rotation": 0
+          },
+          {
+            "position": [ -0.4, -0.2, -0.1 ],
+            "min_rider_count": 1,
+            "max_rider_count": 2,
+            "lock_rider_rotation": 0
+          }
+        ]
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+      },
+      "minecraft:scaffolding_climber": {},
+      "minecraft:environment_sensor": {
+        "triggers": [
+		{
+          "filters": {
+            "all_of": [
+              {
+                "test": "has_mob_effect",
+                "subject": "self",
+                "value": "bad_omen"
+              },
+              {
+                "test": "is_in_village",
+                "subject": "self",
+                "value": true
+              }
+            ]
+          },
+          "event": "minecraft:trigger_raid"
+        },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "is_sneaking",
+                                    "subject": "self"
+                                }
+                            ]
+                        },
+                        "event": "sneak"
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "is_sneaking",
+                                    "subject": "self",
+                                    "operator": "!="
+                                }
+                            ]
+                        },
+                        "event": "stand"
+                    }
+                ]
+      }
+    },
+
+    "events": {
+      "12.7x108_bullet": {
+          "add": {
+            "component_groups": [
+              "12.7x108_bullet"
+              ]
+          }
+        },
+        "12.7x108_trasser_bullet": {
+            "add": {
+              "component_groups": [
+                "12.7x108_trasser_bullet"
+                ]
+            }
+          },
+      "30mm_bullet": {
+          "add": {
+            "component_groups": [
+              "30mm_bullet"
+              ]
+          }
+        },
+        "f1_bullet": {
+            "add": {
+              "component_groups": [
+                "f1_bullet"
+                ]
+            }
+          },
+          "5.45x39_aks74u_bullet": {
+            "randomize":[
+            {
+                "weight":60,
+                "add":{
+                    "component_groups":[
+                        "5.45x39_aks74u_krovotek_bullet"
+                    ]
+                }
+            },
+            {
+                "weight":30,
+                "add":{
+                    "component_groups":[
+                        "5.45x39_aks74u_krovotek2_bullet"
+                    ]
+                }
+            },
+            {
+                "weight":10,
+                "add":{
+                    "component_groups":[
+                        "5.45x39_aks74u_bullet"
+                    ]
+                }
+            }
+        ]
+            },
+        "5.45x39_bullet": {
+          "randomize":[
+          {
+              "weight":45,
+              "add":{
+                  "component_groups":[
+                      "5.45x39_krovotek_bullet"
+                  ]
+              }
+          },
+          {
+              "weight":45,
+              "add":{
+                  "component_groups":[
+                      "5.45x39_krovotek2_bullet"
+                  ]
+              }
+          },
+          {
+              "weight":10,
+              "add":{
+                  "component_groups":[
+                      "5.45x39_bullet"
+                  ]
+              }
+          }
+      ]
+          },
+		"7.62x39_bullet": {
+      "randomize":[
+      {
+          "weight":45,
+          "add":{
+              "component_groups":[
+                  "7.62x39_krovotek_bullet"
+              ]
+          }
+      },
+      {
+          "weight":55,
+          "add":{
+              "component_groups":[
+                  "7.62x39_bullet"
+              ]
+          }
+      }
+  ]
+			},
+      "7.62x54_bullet": {
+          "add": {
+            "component_groups": [
+              "7.62x54_bullet"
+              ]
+          }
+        },
+        "9x18_bullet": {
+          "randomize":[
+          {
+              "weight":35,
+              "add":{
+                  "component_groups":[
+                      "9x18_krovotek_bullet"
+                  ]
+              }
+          },
+          {
+              "weight":65,
+              "add":{
+                  "component_groups":[
+                      "9x18_bullet"
+                  ]
+              }
+          }
+      ]
+          },
+          "9x18_aps_bullet": {
+            "randomize":[
+            {
+                "weight":35,
+                "add":{
+                    "component_groups":[
+                        "9x18_aps_krovotek_bullet"
+                    ]
+                }
+            },
+            {
+                "weight":65,
+                "add":{
+                    "component_groups":[
+                        "9x18_aps_bullet"
+                    ]
+                }
+            }
+        ]
+            },
+			"vog25_bullet": {
+				"add": {
+					"component_groups": [
+						"vog25_bullet"
+          ]
+        }
+      },
+			"pg7vl_bullet": {
+				"add": {
+					"component_groups": [
+						"pg7vl_bullet"
+          ]
+        }
+      },
+      "minecraft:gain_bad_omen": {
+        "add": {
+          "component_groups": [
+            "minecraft:add_bad_omen"
+          ]
+        }
+      },
+      "minecraft:clear_add_bad_omen": {
+        "remove": {
+          "component_groups": [
+            "minecraft:add_bad_omen"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "minecraft:clear_bad_omen_spell_effect"
+          ]
+        }
+      },
+      "minecraft:trigger_raid": {
+        "add": {
+          "component_groups": [ "minecraft:raid_trigger" ]
+        }
+      },
+      "minecraft:remove_raid_trigger": {
+        "remove": {
+          "component_groups": [ "minecraft:raid_trigger" ]
+        }
+      },
+            "sneak": {
+                "add": {
+                    "component_groups": [
+                        "sneak"
+                    ]
+                }
+            },
+            "stand": {
+                "remove": {
+                    "component_groups": [
+                        "sneak"
+                    ]
+                },
+                "add": {
+                    "component_groups": [
+                        "stand"
+                    ]
+                }
+            },
+            "on": {
+                "add": {
+                    "component_groups": [
+                        "on"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "move"
+                    ]
+                }
+            },
+            "move": {
+                "add": {
+                    "component_groups": [
+                        "move"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "on",
+                        "off"
+                    ]
+                }
+            },
+            "off": {
+                "add": {
+                    "component_groups": [
+                        "off"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "on",
+                        "move"
+                    ]
+                }
+            },
+            "gp25": {
+                "add": {
+                    "component_groups": [
+                        "gp25"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "off"
+                    ]
+                }
+            },
+            "dshkm": {
+                "add": {
+                    "component_groups": [
+                        "dshkm"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "off"
+                    ]
+                }
+            },
+            "navodchik_bmp2d": {
+                "add": {
+                    "component_groups": [
+                        "navodchik_bmp2d"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "off"
+                    ]
+                }
+            }
+    }
+  }
+}
+
+
+
+

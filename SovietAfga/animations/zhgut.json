@@ -1,0 +1,14 @@
+{
+    "format_version": "1.8.0",
+    "animations": {
+        "animation.zhgutuse": {
+            "loop":"hold_on_last_frame",
+            "animation_length": 4.0833311,
+            "timeline": {
+                    "0.0": [ "/camerashake add @s 0.01 4.3583 rotational", "/replaceitem entity @s slot.weapon.mainhand 0 addon:zhgut_use" ],
+                  "4.08333": "/clear @s addon:zhgut_use 0 1",
+                "4.083331": [ "/effect @s poison 0 0 true", "/effect @s wither 0 0 true" ]
+            }
+        }
+    }
+}

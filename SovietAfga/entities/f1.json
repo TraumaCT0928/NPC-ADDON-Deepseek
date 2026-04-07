@@ -1,0 +1,69 @@
+{
+	"format_version": "1.13.0",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "addon:f1_bullet",
+			"is_spawnable": false,
+			"is_summonable": true,
+			"is_experimental": false,
+			"runtime_identifier": "minecraft:snowball"
+		},
+		"component_groups": {},
+        "events": {
+            "explode": {
+                "add": {
+                },
+                "run_command": {
+                    "command": [
+                        "damage @e[r=3] 50",
+                        "damage @e[rm=2.1,r=9] 40",
+                        "damage @e[rm=2.1,r=11] 10",
+                        "particle addon:babah_vog", 
+                        "playsound addon.gp25_babah @a[r=300]",
+                        "kill @s"
+                    ]
+                }
+            }
+		},
+		"components": {
+            "minecraft:timer": {
+                "time": [
+                    2.5,
+                    2.5
+                ],
+                "looping": false,
+                "time_down_event": {
+                    "event": "explode",
+                    "target": "self"
+                }
+            },
+			"minecraft:type_family": {
+				"family": [
+					"grenade"
+				]
+			},
+			"minecraft:collision_box": {
+				"width": 0.25,
+				"height": 0.25
+			},
+			"minecraft:scale": {
+				"value": 1
+			},
+			"minecraft:physics": {},
+			"minecraft:projectile": {
+				"should_bounce": true,
+				"onHit": {
+					"stick_in_ground": {}
+				},
+				"power": 1.25,
+				"anchor": 1,
+				"gravity": 0.01,
+				"offset": [
+					0,
+					-0.1,
+					0
+				]
+			}
+		}
+	}
+}
