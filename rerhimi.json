@@ -1,0 +1,139 @@
+{
+    "format_version": "1.10.0",
+    "animation_controllers": {
+        "controller.animation.ak_rezhimi": {
+            "initial_state": "default",
+            "states": {
+            "default": {
+            "transitions": [
+                       {
+            "smena": "query.equipped_item_any_tag('slot.weapon.mainhand','akms') && query.equipped_item_any_tag('slot.weapon.mainhand','gp25') && variable.attack_time && query.scoreboard('rezhim') != 1"
+                        },
+                        {
+             "smena2": "query.equipped_item_any_tag('slot.weapon.mainhand','akms') && query.equipped_item_any_tag('slot.weapon.mainhand','gp25') && variable.attack_time && query.scoreboard('rezhim') == 1"
+                         },
+                         {
+              "gp25reload": "query.equipped_item_any_tag('slot.weapon.mainhand','akms') && query.equipped_item_any_tag('slot.weapon.offhand','vog25') && query.equipped_item_any_tag('slot.weapon.mainhand','gp25') && query.scoreboard('rezhim') == 1 && query.scoreboard('gp25_akms') == 0 && query.all_animations_finished && q.is_using_item"
+                          },
+                          {
+               "gp25reload": "query.equipped_item_any_tag('slot.weapon.mainhand','akms') && query.equipped_item_any_tag('slot.weapon.mainhand','gp25') && query.scoreboard('rezhim') == 1 && query.scoreboard('gp25_akms') == 0 && query.all_animations_finished && q.is_using_item && query.equipped_item_any_tag('slot.armor.feet','poyas_b')"
+                           }
+                    ]
+                },
+                "unungp25": {
+                    "transitions": [
+                        {
+                            "default": "(1.0)"
+                        }],
+                    "on_entry": [
+                        "/scoreboard objectives add rezhim dummy",
+                        "/scoreboard players set @s rezhim 0"
+                    ]
+                    },
+                "start": {
+                    "transitions": [
+                        {
+                            "default": "(1.0)"
+                        }],
+                    "on_entry": [
+                        "/scoreboard objectives add rezhim dummy",
+                        "/scoreboard objectives add gp25_akms dummy"
+                    ]
+                    },
+                "smena": {
+                    "animations": ["akmsrezhimi"],
+                    "transitions": [
+                              {
+                    "default":"query.all_animations_finished"
+                    }
+                           ]
+                    },
+                    "smena2": {
+                        "animations": ["akmsrezhimi2"],
+                        "transitions": [
+                                  {
+                        "default":"query.all_animations_finished"
+                        }
+                               ]
+                        },
+                        "gp25reload": {
+                            "on_entry": [
+                                "/gamerule sendcommandfeedback false",
+                                "/scoreboard objectives add rezhim dummy",
+                                "/scoreboard objectives add gp25_akms dummy",
+                                "/tag @s[hasitem={item=addon:vog25}] add vog25",
+                                "/replaceitem entity @s[tag=vog25,hasitem={item=addon:gp25_akms,location=slot.weapon.mainhand}] slot.weapon.mainhand 0 addon:gp25_akms_r2",
+                                "/replaceitem entity @s[tag=vog25,hasitem={item=addon:gp25_akms_empty,location=slot.weapon.mainhand}] slot.weapon.mainhand 0 addon:gp25_akms_r2_empty"
+                            ],
+                            "transitions": [
+                                {
+                                    "default": "(1.0)"
+                                }
+                            ]
+                            }
+            }
+        },        
+        "controller.animation.aks74_rezhimi": {
+                "initial_state": "default",
+                "states": {
+                "default": {
+                "transitions": [
+                           {
+                "smena": "query.equipped_item_any_tag('slot.weapon.mainhand','aks74') && query.equipped_item_any_tag('slot.weapon.mainhand','gp25') && variable.attack_time && query.scoreboard('rezhim') != 1"
+                            },
+                            {
+                 "smena2": "query.equipped_item_any_tag('slot.weapon.mainhand','aks74') && query.equipped_item_any_tag('slot.weapon.mainhand','gp25') && variable.attack_time && query.scoreboard('rezhim') == 1"
+                             },
+                             {
+                  "gp25reload": "query.equipped_item_any_tag('slot.weapon.mainhand','aks74') && query.equipped_item_any_tag('slot.weapon.offhand','vog25') && query.equipped_item_any_tag('slot.weapon.mainhand','gp25') && query.scoreboard('rezhim') == 1 && query.scoreboard('gp25_aks74') == 0 && query.all_animations_finished && q.is_using_item"
+                              },
+                              {
+                   "gp25reload": "query.equipped_item_any_tag('slot.weapon.mainhand','aks74') && query.equipped_item_any_tag('slot.weapon.mainhand','gp25') && query.scoreboard('rezhim') == 1 && query.scoreboard('gp25_aks74') == 0 && query.all_animations_finished && q.is_using_item && query.equipped_item_any_tag('slot.armor.feet','poyas_b')"
+                               }
+                        ]
+                    },
+                    "start": {
+                        "transitions": [
+                            {
+                                "default": "(1.0)"
+                            }],
+                        "on_entry": [
+                            "/scoreboard objectives add rezhim dummy",
+                            "/scoreboard objectives add gp25_aks74 dummy"
+                        ]
+                        },
+                    "smena": {
+                        "animations": ["aks74rezhimi"],
+                        "transitions": [
+                                  {
+                        "default":"query.all_animations_finished"
+                        }
+                               ]
+                        },
+                        "smena2": {
+                            "animations": ["aks74rezhimi2"],
+                            "transitions": [
+                                      {
+                            "default":"query.all_animations_finished"
+                            }
+                                   ]
+                            },
+                            "gp25reload": {
+                                "on_entry": [
+                                    "/gamerule sendcommandfeedback false",
+                                    "/scoreboard objectives add rezhim dummy",
+                                    "/scoreboard objectives add gp25_aks74 dummy",
+                                    "/tag @s[hasitem={item=addon:vog25}] add vog25",
+                                    "/replaceitem entity @s[tag=vog25,hasitem={item=addon:gp25_aks74,location=slot.weapon.mainhand}] slot.weapon.mainhand 0 addon:gp25_aks74_r2",
+                                    "/replaceitem entity @s[tag=vog25,hasitem={item=addon:gp25_aks74_empty,location=slot.weapon.mainhand}] slot.weapon.mainhand 0 addon:gp25_aks74_r2_empty"
+                                ],
+                                "transitions": [
+                                    {
+                                        "default": "(1.0)"
+                                    }
+                                ]
+                                }
+                }
+            }
+    }
+}

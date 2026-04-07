@@ -1,0 +1,105 @@
+{
+    "format_version": "1.16.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "coptaine:crawler",
+            "is_spawnable": false,
+            "is_summonable": true,
+            "is_experimental": false
+        },
+        "components": {
+            "minecraft:type_family": {
+                "family": [
+                    "crawler"
+                ]
+            },
+            "minecraft:movement": {
+                "value": 0.04
+            },
+            "minecraft:navigation.walk": {},
+            "minecraft:movement.basic": {},
+            "minecraft:jump.static": {},
+            "minecraft:physics": {},
+            "minecraft:pushable": {
+                "is_pushable": false,
+                "is_pushable_by_piston": false
+            },
+            "minecraft:is_tamed": {},
+            "minecraft:rideable": {
+                "seat_count": 1,
+                "crouching_skip_interact": false,
+                "family_types": [
+                    "player"
+                ],
+                "interact_text": "Crawl",
+                "seats": {
+                    "position": [
+                        0,
+                        -0.5,
+                        0.5
+                    ]
+                },
+                "rider_can_interact": false
+            },
+            "minecraft:collision_box": {
+                "width": 0.4,
+                "height": 0.6
+            },
+            "minecraft:is_saddled": {},
+            "minecraft:input_ground_controlled": {},
+            "minecraft:behavior.player_ride_tamed": {},
+            "minecraft:damage_sensor": {
+                "triggers": {
+                    "cause": "all",
+                    "deals_damage": false
+                }
+            },
+            "minecraft:health": {
+                "value": 1
+            },
+            "minecraft:environment_sensor": {
+                "triggers": [
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "has_tag",
+                                    "subject": "self",
+                                    "value": "kill"
+                                }
+                            ]
+                        },
+                        "event": "despawn"
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "distance_to_nearest_player",
+                                    "subject": "self",
+                                    "value": 3,
+                                    "operator": ">="
+                                }
+                            ]
+                        },
+                        "event": "despawn"
+                    }
+                ]
+            }
+        },
+        "events": {
+            "despawn": {
+                "add": {
+                    "component_groups": [
+                        "despawn"
+                    ]
+                }
+            }
+        },
+        "component_groups": {
+            "despawn": {
+                "minecraft:instant_despawn": {}
+            }
+        }
+    }
+}

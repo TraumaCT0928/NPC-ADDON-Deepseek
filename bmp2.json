@@ -1,0 +1,160 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.navodchik_bmp2d": {
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "working": "query.has_rider"
+            }
+          ]
+        },
+        "working": {
+          "transitions": [
+            {
+              "default": "1.0"
+            }
+          ],
+          "on_entry": [
+            "/scoreboard objectives add navodchik_bmp2d dummy",
+            "/execute @s ^^2 ^-0.7 tag @a[tag=riding,r=2,rm=0] add navodchik",
+            "/execute @e[type=player,tag=navodchik,r=2] ~~~ playanimation @e[type=addon:bmp2dtunk,r=2,c=1] animation.bashnya",
+            "/execute @e[type=player,tag=navodchik,r=2] ~~~ scoreboard players set @s navodchik_bmp2d 1"
+          ]
+        }
+      }
+    },
+    "controller.animation.bmp2d_fire": {
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "fire_pkt": "query.equipped_item_any_tag('slot.weapon.mainhand','pkt') && query.is_using_item && query.is_riding"
+            },
+            {
+              "fire": "query.equipped_item_any_tag('slot.weapon.mainhand','30mm') && query.is_using_item && query.is_riding"
+            },
+            {
+              "working2": "query.is_riding && query.scoreboard('navodchik_bmp2d') == 1"
+            },
+            {
+              "working0": "query.is_riding"
+            },
+            {
+              "working1": "!query.is_riding"
+            }
+          ]
+        },
+        "working01": {
+          "transitions": [
+            {
+              "default": "1.0"
+            }
+          ],
+          "on_entry": [
+            "/scoreboard objectives add navodchik_bmp2d dummy",
+            "/execute @e[type=addon:bmp2dtunk,r=4] ~ ~ ~ effect @a[r=3] resistance 2 220 true"
+          ]
+        },
+        "working0": {
+          "transitions": [
+            {
+              "default": "1.0"
+            }
+          ],
+          "on_entry": [
+            "/function bmp2d",
+            "/give @s[tag=navodchik,tag=!hui] addon:pkt 1 1 {\"minecraft:item_lock\":{ \"mode\": \"lock_in_inventory\" }}",
+            "/give @s[tag=navodchik,tag=!hui] addon:mm30 1 1 {\"minecraft:item_lock\":{ \"mode\": \"lock_in_inventory\" }}",
+            "/tag @s[tag=navodchik] add hui",
+            "/title @s[tag=navodchik] title hud.bmp2d_scope",
+            "/event entity @s[tag=navodchik] navodchik_bmp2d"
+          ]
+        },
+        "fire": {
+          "transitions": [
+            {
+              "default": "1.0"
+            }
+          ],
+          "on_entry": [
+            "/execute @e[type=addon:bmp2dtunk,r=5] ~ ~ ~ execute @a[rx=20,rxm=-90,tag=navodchik,r=2] ~~~ playsound addon.30mm @a ^^^0.10 300 1",
+            "/execute @e[type=addon:bmp2dtunk,r=5] ~ ~ ~ execute @a[rx=20,rxm=-90,tag=navodchik,r=2] ~~~ playanimation @s animation.bmp_fire",
+            "/execute @e[type=addon:bmp2dtunk,r=5] ~ ~ ~ event entity @a[rx=20,rxm=-90,tag=navodchik,r=2] 30mm_bullet"
+          ]
+        },
+        "fire_pkt": {
+          "transitions": [
+            {
+              "default": "1.0"
+            }
+          ],
+          "on_entry": [
+            "/execute @e[type=addon:bmp2dtunk,r=5] ~ ~ ~ execute @a[rx=20,rxm=-90,tag=navodchik,r=2] ~~~ playsound addon.pkm @a ^^^0.10 200 1",
+            "/execute @e[type=addon:bmp2dtunk,r=5] ~ ~ ~ execute @a[rx=20,rxm=-90,tag=navodchik,r=2] ~~~ playanimation @s animation.bmp_pkt_fire",
+            "/execute @e[type=addon:bmp2dtunk,r=5] ~ ~ ~ event entity @a[rx=20,rxm=-90,tag=navodchik,r=2] 7.62x54_bullet"
+          ]
+        },
+        "working1": {
+          "transitions": [
+            {
+              "default": "1.0"
+            }
+          ],
+          "on_entry": [
+            "/scoreboard players set @s navodchik_bmp2d 0",
+            "/tag @s remove navodchik",
+            "/tag @s remove mehvod",
+            "/tag @s remove riding",
+            "/tag @s remove hui",
+            "/title @s title hud.empty",
+            "@s off",
+            "/clear @s addon:mm30",
+            "/clear @s addon:pkt"
+          ]
+        },
+        "working2": {
+          "transitions": [
+            {
+              "default": "1.0"
+            }
+          ],
+          "on_entry": [
+          ]
+        }
+      }
+    },
+    "controller.animation.bmp2d_mehvod": {
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "working0": "query.is_riding"
+            }
+          ]
+        },
+        "working0": {
+          "transitions": [
+            {
+              "default": "1.0"
+            }
+          ],
+          "on_entry": [
+            "/execute @e[type=addon:bmp2dtunk,r=4] ~ ~ ~ tag @a[tag=riding,rm=2.2,r=2.5] add mehvod",
+            "/execute @e[type=addon:bmp2dtunk,r=4] ~ ~ ~ clear @a[tag=mehvod,rm=2.3,r=2.5] addon:mm30",
+            "/execute @e[type=addon:bmp2dtunk,r=4] ~ ~ ~ clear @a[tag=mehvod,rm=2.3,r=2.5] addon:pkt",
+            "/execute @e[type=addon:bmp2dtunk,r=4] ~ ~ ~ tag @a[rm=2.1,r=2.5] remove navodchik",
+            "/execute @e[type=addon:bmp2dtunk,r=4] ~ ~ ~ scoreboard players set @a[tag=navodchik,rm=2.3,r=2.5] navodchik_bmp2d 0",
+            "/effect @s[tag=mehvod,tag=!navodchik] invisibility 1 1 true",
+            "/title @a[tag=mehvod] title hud.mehvod",
+            "/execute @e[type=addon:bmp2dtunk,r=4] ~ ~ ~ effect @a[tag=riding,r=2.5] resistance 1 220 true",
+            "/execute @e[type=addon:bmp2dtunk,r=4] ~ ~ ~ playanimation @a[tag=riding,rm=2.6,r=3.6] animation.riding_bmp2d",
+            "/execute @e[type=addon:bmp2dtunk,r=4] ~ ~ ~ tag @a[tag=riding,rm=2.6,r=3.6] remove mehvod",
+            "/execute @e[type=addon:bmp2dtunk,r=4] ~ ~ ~ title @a[tag=riding,rm=2.6,r=3.6] title hud.empty"
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,119 @@
+{
+    "format_version": "1.8.0",
+    "animation_controllers": {
+        "controller.animation.gp25":{
+          "initial_state" : "event0",
+            "states":{
+                "event0":{
+                    "transitions":[
+                    {
+                    "akms":"query.is_using_item && query.get_equipped_item_name=='akms_empty' && query.get_equipped_item_name('off_hand') == 'gp25'"
+                },
+                {
+                "akms2":"query.is_using_item && query.get_equipped_item_name=='akms_empty' && query.get_equipped_item_name('off_hand') == 'pbs1'"
+            },
+            {
+            "aks74u":"query.is_using_item && query.get_equipped_item_name=='aks74u_empty' && query.get_equipped_item_name('off_hand') == 'pbs4'"
+        },
+            {
+            "aks74":"query.is_using_item && query.get_equipped_item_name=='aks74_empty' && query.get_equipped_item_name('off_hand') == 'gp25'"
+        },
+            {
+            "pso1":"query.is_using_item && query.get_equipped_item_name=='svd_empty' && query.get_equipped_item_name('off_hand') == 'pso1'"
+        },
+        {
+        "nspu":"query.is_using_item && query.get_equipped_item_name=='svd_empty' && query.get_equipped_item_name('off_hand') == 'nspu'"
+    },
+    {
+    "rpg7":"query.is_using_item && query.get_equipped_item_name=='rpg7v_empty' && query.get_equipped_item_name('off_hand') == 'pgo7v'"
+}
+                ]
+                },
+                "rpg7": {
+                    "transitions": [
+                        {
+                            "event0": "(1.0)"
+                        }],
+                    "on_entry": [
+                        "/gamerule sendcommandfeedback false",
+            "/replaceitem entity @s slot.weapon.mainhand 0 addon:rpg7v_pgo7v_empty",
+"/camerashake add @s 0.02 1 rotational",
+"/clear @s addon:pgo7v 0 1"
+                    ]
+                },
+                "akms": {
+                    "transitions": [
+                        {
+                            "event0": "(1.0)"
+                        }],
+                    "on_entry": [
+                        "/gamerule sendcommandfeedback false",
+            "/replaceitem entity @s slot.weapon.mainhand 0 addon:akms_gp25_empty",
+"/camerashake add @s 0.02 1 rotational",
+"/clear @s addon:gp25 0 1"
+                    ]
+                },
+                "aks74": {
+                    "transitions": [
+                        {
+                            "event0": "(1.0)"
+                        }],
+                    "on_entry": [
+                        "/gamerule sendcommandfeedback false",
+            "/replaceitem entity @s slot.weapon.mainhand 0 addon:aks74_gp25_empty",
+"/camerashake add @s 0.02 1 rotational",
+"/clear @s addon:gp25 0 1"
+                    ]
+                },
+                "aks74u": {
+                    "transitions": [
+                        {
+                            "event0": "(1.0)"
+                        }],
+                    "on_entry": [
+                        "/gamerule sendcommandfeedback false",
+            "/replaceitem entity @s slot.weapon.mainhand 0 addon:aks74u_pbs_empty",
+"/camerashake add @s 0.02 1 rotational",
+"/clear @s addon:pbs4 0 1"
+                    ]
+                },
+                "akms2": {
+                    "transitions": [
+                        {
+                            "event0": "(1.0)"
+                        }],
+                    "on_entry": [
+                        "/gamerule sendcommandfeedback false",
+            "/replaceitem entity @s slot.weapon.mainhand 0 addon:akms_pbs_empty",
+"/camerashake add @s 0.02 1 rotational",
+"/clear @s addon:pbs1 0 1"
+                    ]
+                },
+                "pso1": {
+                    "transitions": [
+                        {
+                            "event0": "(1.0)"
+                        }],
+                    "on_entry": [
+                        "/gamerule sendcommandfeedback false",
+            "/replaceitem entity @s slot.weapon.mainhand 0 addon:svd_pso1_empty",
+"/camerashake add @s 0.02 1 rotational",
+"/clear @s addon:pso1 0 1"
+                    ]
+                },
+                "nspu": {
+                    "transitions": [
+                        {
+                            "event0": "(1.0)"
+                        }],
+                    "on_entry": [
+                        "/gamerule sendcommandfeedback false",
+            "/replaceitem entity @s slot.weapon.mainhand 0 addon:svd_nspu_empty",
+"/camerashake add @s 0.02 1 rotational",
+"/clear @s addon:nspu 0 1"
+                    ]
+                }
+            }
+        }
+    }
+}
