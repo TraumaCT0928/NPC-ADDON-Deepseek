@@ -1,0 +1,58 @@
+{
+    "format_version": "1.10.0",
+    "animation_controllers": {
+        "controller.animation.crawl": {
+            "states": {
+                "default": {
+                    "transitions": [
+                        {
+                            "crawl": "query.is_sneaking && query.head_x_rotation(0) >= 80 && query.is_riding == 0.0"
+                        }
+                    ],
+                    "on_entry": [
+                        "/tag @e[type=coptaine:crawler,c=1,r=1] add kill"
+                    ]
+                },
+                "crawl": {
+                    "on_entry": [
+                        "/summon coptaine:crawler"
+                    ],
+                    "transitions": [
+                        {
+                            "start-crawl": "query.is_riding"
+                        },
+                        {
+                            "default": "query.head_x_rotation(0) < 80"
+                        }
+                    ]
+                },
+                "start-crawl": {
+                    "on_entry": [
+                        "@s on"
+                    ],
+                    "transitions": [
+                        {
+                            "default": "!query.is_riding"
+                        },
+                        {
+                            "move": "query.ground_speed > 0.0"
+                        }
+                    ]
+                },
+                "move": {
+                    "on_entry": [
+                        "@s move"
+                    ],
+                    "transitions": [
+                        {
+                            "default": "!query.is_riding"
+                        },
+                        {
+                            "start-crawl": "query.ground_speed == 0.0"
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}

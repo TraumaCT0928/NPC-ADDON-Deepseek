@@ -1,0 +1,14 @@
+{
+    "format_version": "1.8.0",
+    "animations": {
+        "animation.f1use": {
+            "loop":"hold_on_last_frame",
+            "animation_length": 2.208331,
+            "timeline": {
+                    "0.0": [ "/replaceitem entity @s slot.weapon.mainhand 0 addon:f1_use" ],
+                    "0.7917": [ "@s f1_bullet" ],
+                  "2.20833": "/clear @s addon:f1_use"
+            }
+        }
+    }
+}

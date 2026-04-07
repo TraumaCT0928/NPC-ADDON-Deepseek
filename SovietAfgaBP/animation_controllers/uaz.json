@@ -1,0 +1,25 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.uaz": {
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "working": "query.is_alive"
+            }
+          ]
+        },
+        "working": {
+          "transitions": [
+            {
+              "default": "1.0"
+            }
+          ],
+          "on_entry": [
+          ]
+        }
+      }
+    }
+  }
+}

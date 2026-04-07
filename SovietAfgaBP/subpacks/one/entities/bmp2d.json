@@ -1,0 +1,139 @@
+{
+	"format_version": "1.8.0",
+	"minecraft:entity": {
+	  "description": {
+		"identifier": "addon:bmp2dtunk",
+		"is_spawnable": true,
+		"is_summonable": true,
+		"is_experimental": false,
+		"scripts": {
+			"animate": [
+				"navodchik",
+				"babah"
+			]
+		},
+		"animations": {
+			"navodchik": "controller.animation.navodchik_bmp2d",
+			"babah": "controller.animation.babah_bmp2d"
+		}
+	  },
+	  "components": {
+		  "minecraft:timer": {
+			   "time": [
+				0.0,
+					  0.0
+					   ],
+				  "looping": true,
+				  "time_down_event": {
+					  "function": "tunk",
+					  "target": "self"
+					   }
+			  },
+					  
+		"minecraft:type_family": {
+		  "family": [ "tank" ]
+		},
+		"minecraft:breathable": {
+		  "totalSupply": 1,
+		  "suffocateTime": 0
+		},
+	"minecraft:scale": {
+		  "value": 1
+		},
+		"minecraft:collision_box": {
+			"width": 3,
+		"height": 1.5,
+		"pivot": [0, 0, 0]
+		},
+	   "minecraft:movement": {
+		  "value": 0.2
+		  },
+		  "minecraft:movement.basic": {
+  
+		  },
+		  "minecraft:jump.static": {
+		  },
+		"minecraft:health": {
+		  "value": 3000,
+		  "max": 3000
+		},
+		"minecraft:nameable": {
+		},
+  
+		  "minecraft:knockback_resistance": {
+		  "value": 1.0
+		},
+		"minecraft:rideable": {
+		  "priority": 0,
+		  "seat_count": 3,
+		  "crouching_skip_interact": true,
+		  "interact_text": "Drive",
+		  "family_types": [
+			"player",
+			"villager"
+		  ],
+		  "seats": [
+			{
+				"position": [0, 1.6, -0.7]
+			},
+			{
+				"position": [-0.5, 0.2, -3], "rotate_rider_by": 90,
+				"lock_rider_rotation": 135
+			},
+			{
+				"position": [0.5, 0.2, -3], "rotate_rider_by": -90,
+				"lock_rider_rotation": 135
+			}
+		  ]
+		},
+		"minecraft:input_ground_controlled": {
+		},
+		
+  
+		"minecraft:physics": {
+		},
+		"minecraft:on_death": {
+		  "event": "death",
+		  "target": "self"
+		}
+	  },
+	  
+	  "component_groups": {
+		
+		 "death":{
+	  "minecraft:timer":{
+	  "time":[0.1,0.1],
+	  "looping":false,
+	  "time_down_event":{
+	  "event":"stop_fire",
+	  "target":"self"
+	  }
+	  },
+	  "minecraft:spawn_entity":[
+	  {
+	  "min_wait_time":0,
+	  "max_wait_time":0,
+	   "single_use":true,
+		"spawn_entity":"addon:bmp2d_death",
+		  "num_to_spawn":1
+			}
+		  ]
+		 }
+	  },
+	  "events": {
+		"death": {
+			"add": {
+			  "component_groups": [
+				"death"
+				]
+			},
+			"run_command": {
+				"command": [
+					"kill @a[r=5]"
+				]
+			}
+		  }
+		}
+	}
+  }
+  
